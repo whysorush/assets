@@ -2086,7 +2086,7 @@ const asset_json = {
     "title": "About Growthally Advisors",
     "description": "Established in July 2010, Growthally Advisors is a leading Investment Banking company with a sharp focus on Debt Syndication, Equity Advisory, M&A, and related advisory services. Our visionary founders paved the way for our success as 'A Friend for Growth'.",
     "detailed_description": "Our team of professionals is committed to offering the most exceptional services like debt syndication, equity advisory, M&A, CFO services, leasing, and more. We are dedicated to delivering top-notch solutions to assist in our client's financial objectives. We provide the expertise and knowledge required for your accomplishments regardless you're a business owner, investor, or individual. Contact us today to learn how we can help you achieve your financial aspirations.",
-    "image": "https://amerant-of-interest-qa-wp-media.s3.amazonaws.com/wp-content/uploads/2024/10/how-to-pay-off-high-interest-debt-2048x1365.jpg"
+    "image": "./assets/group2.jpeg "
   },
   "achievements": [
     {
@@ -5377,8 +5377,39 @@ html {
   padding-top: 3px !important;
 }
 
-/* Mobile Responsive - Client Logos */
-@media (max-width: 768px) {
+  /* WhatsApp Sticky Button */
+  .whatsapp-sticky-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 10000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .whatsapp-sticky-btn:hover {
+    background: #128C7E;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  }
+  
+  .whatsapp-sticky-btn i {
+    font-size: 32px;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  /* Mobile Responsive - Client Logos */
+  @media (max-width: 768px) {
   .client_logo {
     width: 100% !important;
     padding: 1rem !important;
@@ -5405,6 +5436,18 @@ html {
   /* 1 logo per row on mobile */
   .featured {
     padding: 40px 0 !important;
+  }
+  
+  /* WhatsApp button mobile sizing */
+  .whatsapp-sticky-btn {
+    width: 56px;
+    height: 56px;
+    bottom: 80px;
+    right: 20px;
+  }
+  
+  .whatsapp-sticky-btn i {
+    font-size: 28px;
   }
 }
 
@@ -12332,7 +12375,7 @@ text-shadow: none;
 
 						<div class="row about-row about-pd">
 							<div class="col-sm-6">
-								<img src="https://amerant-of-interest-qa-wp-media.s3.amazonaws.com/wp-content/uploads/2024/10/how-to-pay-off-high-interest-debt-2048x1365.jpg" alt="Growthally Advisors - Core Values" loading="lazy">
+								<img src="./assets/group2.jpeg " alt="Growthally Advisors - Core Values" loading="lazy">
 							</div>
 
 							<div class="col-sm-6 text-justify">
@@ -16327,6 +16370,15 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                         
                 });
 	</script>
+
+	<!-- WhatsApp Sticky Button -->
+	<a href="https://wa.me/917506236027?text=Hi" 
+	   class="whatsapp-sticky-btn" 
+	   target="_blank" 
+	   rel="noopener noreferrer"
+	   aria-label="Chat with us on WhatsApp">
+		<i class="fab fa-whatsapp"></i>
+	</a>
 
 		</main>
 	</body>
