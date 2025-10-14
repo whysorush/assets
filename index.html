@@ -657,6 +657,41 @@
     }
 }
 
+/* Bounce in animation on load */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-50px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Bounce animation on hover */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+}
+
 .about_us img {
     animation: float 6s ease-in-out infinite;
 }
@@ -4451,21 +4486,36 @@ html {
 
 .main-headline {
   font-size: 3.5rem;
-  color: #ffffff !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: #1e3a8a;
+  filter: drop-shadow(0 2px 8px rgba(30, 58, 138, 0.5)) drop-shadow(0 0 20px rgba(62, 120, 173, 0.3));
   font-weight: 700;
   margin-bottom: 1rem;
   font-family: serif;
+  position: relative;
+  animation: bounceIn 1s ease-out;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.main-headline:hover {
+  animation: bounce 0.6s ease;
 }
 
 .sub-headline {
   font-size: 1.8rem;
-  color: #d4af37 !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  font-weight: 500;
+  color: #f4e4c1;
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+  font-weight: 600;
   margin-bottom: 2rem;
   font-family: serif;
   position: relative;
+  animation: bounceIn 1.2s ease-out;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.sub-headline:hover {
+  animation: bounce 0.6s ease;
 }
 
 .sub-headline::after {
@@ -4476,7 +4526,8 @@ html {
   transform: translateX(-50%);
   width: 60px;
   height: 2px;
-  background: #d4af37;
+  background: #f4e4c1;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
 }
 
 .services-row {
@@ -4488,15 +4539,17 @@ html {
 }
 
 .service-item {
-  color: #ffffff !important;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .golden-dot {
-  color: #d4af37 !important;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -12221,7 +12274,7 @@ text-shadow: none;
 <body class="page_index">
 		<!-- Full Page Video Background -->
 		<video id="full-page-video-bg" class="full-page-video" autoplay muted loop playsinline>
-			<source src="https://video-previews.elements.envatousercontent.com/7ad5371b-bdff-43be-8231-f70c64a8a1ad/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+			<!-- <source src="assets/hero.mp4" type="video/mp4"> -->
 			Your browser does not support the video tag.
 		</video>
 	<!-- Skip Links for Accessibility -->
@@ -12339,7 +12392,7 @@ text-shadow: none;
 						<li role="none"><a href="#cli" role="menuitem">Clients</a></li>
 						<li role="none"><a href="#test" role="menuitem">Testimonials</a></li>
 						<li role="none"><a href="#car" role="menuitem">Careers</a></li>
-						<li role="none"><a href="#gallery" role="menuitem">Gallery</a></li>
+						<!-- <li role="none"><a href="#gallery" role="menuitem">Gallery</a></li> -->
 						<li role="none"><a href="#con" role="menuitem">Contact</a></li>
 					</ul>
 				</nav>
@@ -12350,7 +12403,7 @@ text-shadow: none;
 		<div id="wrapper_scroll">
 			<div class="hero-banner" id="home">
 				<video id="page-video-bg" class="hero-video" autoplay muted loop playsinline>
-					<source src="https://video-previews.elements.envatousercontent.com/7ad5371b-bdff-43be-8231-f70c64a8a1ad/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+					<source src="assets/hero.mp4" type="video/mp4">
 					Your browser does not support the video tag.
 				</video>
 				<div class="banner-overlay-2 flex justify-center items-center">
@@ -12406,7 +12459,7 @@ text-shadow: none;
 			<section id="counter-section" class="prices bg-light" style="padding: 80px 0; background-image: url(''); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; overflow: hidden;">
 				<!-- Background Video -->
 				<video class="achievements-bg-video" autoplay muted loop playsinline>
-					<source src="https://video-previews.elements.envatousercontent.com/7ad5371b-bdff-43be-8231-f70c64a8a1ad/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+					<source src="assets/hero.mp4" type="video/mp4">
 					Your browser does not support the video tag.
 				</video>
 				<div class="achievements-overlay"></div>
@@ -12859,128 +12912,6 @@ text-shadow: none;
 				</div>
 
 			</section>
-
-			<section class="contact" style="padding: 80px 0; background: #ffffff;">
-				<div class="container">
-					<h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">FEW MARQUEE <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem;">Transactions</span></h2>
-					<div style="width: 80px; height: 4px; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); margin: 0 auto 30px; border-radius: 2px;"></div>
-
-					<div class="contact_content">
-
-						<div class="row">
-							<div class="col-sm-6 marquee-box">
-								<div class="disc">
-									<div class="inline-disc wow fadeInLeft animated animated" style="visibility: visible; animation-name: fadeInLeft;">
-										<ul class="star-ul">
-											<li>The client was seeking a refinancing opportunity to give exit to a PSU
-												bank as principal repayment was about to trigger.</li>
-											<li>We successfully executed the deal through an NBFC, benefiting them with
-												extended tenure along with enhancement for purchase of land parcel for
-												developing large township.</li>
-										</ul>
-									</div>
-									<p style="margin-top: 10px;color: #000;font-weight: 600;">
-										Deal Details:- Structured Debt for a SRA project in Mumbai [ ₹780 crores ]
-									</p>
-								</div>
-							</div>
-							<div class="col-sm-6 marquee-box">
-								<div class="disc">
-									<div class="inline-disc wow fadeInLeft animated animated" style="visibility: visible; animation-name: fadeInLeft;">
-										<ul class="star-ul">
-											<li>Structured 3 years LC confirmation &amp; discounting, under approval route,
-												using credit wrap from Insurance to enhance capacity of two banks
-												involved in taking out risk of Issuing Bank based in Bangladesh. </li>
-											<li>The Beneficiary was based in Europe. This enabled the Client to timely
-												set up a greenfield HFO based Power Plant.</li>
-										</ul>
-									</div>
-									<p style="margin-top: 10px;    color: #000;    font-weight: 600;">Deal Details:-
-										Deal Details: Trade Finance for Conglomerate in Bangladesh [Euros 32.5 Million ]
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-6 marquee-box">
-								<div class="disc">
-									<div class="inline-disc wow fadeInLeft animated animated" style="visibility: visible; animation-name: fadeInLeft;">
-										<ul class="star-ul">
-											<li>The client was seeking a rate reduction from an NBFC and further funds
-												to construct new Warehouse. But the lease lock-in Tenure was only 2
-												years. We successfully executed the deal through a Private Bank.</li>
-											<li>Releasing Promoter's Personal Guarantee and self-occupied residential
-												property was value added service given by Growthally.</li>
-										</ul>
-									</div>
-									<p style="margin-top: 10px;color: #000;font-weight: 600;">
-										Deal Details: Construction Finance cum LRD Finance for an Integrated Logistic
-										Park at Nagpur [₹133cr]</p>
-								</div>
-							</div>
-							<div class="col-sm-6 marquee-box">
-								<div class="disc">
-									<div class="inline-disc wow fadeInLeft animated animated" style="visibility: visible; animation-name: fadeInLeft;">
-										<ul class="star-ul">
-											<li>The client was seeking for takeover of the existing limits due to higher
-												interest rate. We shifted their limits to PSU bank with enhanced working
-												capital limits and reduced the ROI to 8.35% from 14.80% We also gave
-												financial advisory to client in takeover of an old business from another
-												promoter.</li>
-											<li>Assisted in release of other family member's Personal Guarantees and
-												cross collateralization of Inter Co. properties.</li>
-										</ul>
-									</div>
-									<p style="margin-top: 10px;    color: #000;    font-weight: 600;">Deal Details: For
-										Takeover cum Loan Enhancement for Stainless Steel Mfg. Co. in Ahmedabad, having
-										Revenue of Rs.250 Crs [ ₹34 crores ]</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-
-							<div class="col-sm-6 marquee-box">
-								<div class="disc">
-									<div class="inline-disc wow fadeInLeft animated animated" style="visibility: visible; animation-name: fadeInLeft;">
-										<ul class="star-ul">
-											<li>The Developer was unable to meet the repayment commitment and was
-												declared as NPA by its PSU Lender. The Trustees had infused Capex of
-												Rs.15 Crs from own sources and wanted cash out on same.</li>
-											<li>We structured the deal from Bank in such a way that 100% of the money
-												infused by the Trustees in form of Capex was paid back to them.</li>
-										</ul>
-									</div>
-									<p style="margin-top: 10px;color: #000;font-weight: 600;">
-										Deal Details: Cash-out to Trustees for a Medical College and Hospital in
-										Palakkad [ ₹15 crores ]</p>
-								</div>
-							</div>
-							<div class="col-sm-6 marquee-box">
-								<div class="disc">
-									<div class="inline-disc wow fadeInLeft animated animated" style="visibility: visible; animation-name: fadeInLeft;">
-										<ul class="star-ul">
-											<li>We structured a takeover wherein the loan amount was higher than the
-												size of existing balance sheet of borrower. Assisted in release of other
-												family member's Personal Guarantees and cross collateralization of Inter
-												Co. properties.</li>
-											<li>We arranged the fund at competitive ROI without any External Credit
-												Rating.</li>
-										</ul>
-									</div>
-									<p style="margin-top: 10px;color: #000;font-weight: 600;">
-										Deal Details: Structured Debt for a Chemical &amp; Pharma player in Ankleshwar [
-										₹20 crores ]</p>
-								</div>
-							</div>
-						</div>
-
-
-					</div>
-				</div>
-			</section>
-
 			<div class="modal fade" id="exampleModale" role="dialog" aria-labelledby="formModal" aria-hidden="true" style="top:90px;background: #332f2fde;">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -13065,7 +12996,7 @@ text-shadow: none;
 	<section id="test" class="testimonials" style="padding: 80px 0; background: #ffffff; position: relative; overflow: hidden;">
 		<!-- Background Video -->
 		<video class="testimonials-bg-video" autoplay muted loop playsinline>
-			<source src="https://video-previews.elements.envatousercontent.com/7ad5371b-bdff-43be-8231-f70c64a8a1ad/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+			<source src="assets/hero.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
 		<div class="testimonials-overlay"></div>
@@ -13443,7 +13374,7 @@ text-shadow: none;
 	<section class="brochure-section">
 		<!-- Background Video contained within section -->
 		<video class="brochure-bg-video" autoplay muted loop playsinline>
-			<source src="https://video-previews.elements.envatousercontent.com/7ad5371b-bdff-43be-8231-f70c64a8a1ad/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+			<source src="assets/hero.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
 		<div class="brochure-overlay"></div>
@@ -15937,14 +15868,14 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 				"specialties": ["Transaction Advisory", "Private Equity", "M&A"],
 				"linkedin": "#"
 			},
-			{
-				"name": "Aditya",
-				"position": "Manager- Client Acquisition",
-				"bio": "MBA graduate from NMIMS with a strong foundation in finance & advisory. Ex-ICICI Bank professional with proven expertise in client acquisition and origination. Recognized for driving growth, strengthening partnerships, and enabling impactful investment banking solutions.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Client Acquisition", "Investment Banking", "Partnerships"],
-				"linkedin": "#"
-			}
+		{
+			"name": "Aditya",
+			"position": "Manager- Client Acquisition",
+			"bio": "MBA graduate from NMIMS with a strong foundation in finance & advisory. Ex-ICICI Bank professional with proven expertise in client acquisition and origination. Recognized for driving growth, strengthening partnerships, and enabling impactful investment banking solutions.",
+			"image": "./assets/Aditya.jpg",
+			"specialties": ["Client Acquisition", "Investment Banking", "Partnerships"],
+			"linkedin": "#"
+		}
 		];
 
 		// Separate founders and team members
