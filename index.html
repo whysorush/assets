@@ -657,38 +657,22 @@
     }
 }
 
-/* Bounce in animation on load */
-@keyframes bounceIn {
+/* Smooth bounce animation on load */
+@keyframes smoothBounce {
     0% {
         opacity: 0;
-        transform: scale(0.3) translateY(-50px);
+        transform: translateY(30px);
     }
-    50% {
+    60% {
         opacity: 1;
-        transform: scale(1.05);
+        transform: translateY(-8px);
     }
-    70% {
-        transform: scale(0.95);
+    80% {
+        transform: translateY(4px);
     }
     100% {
         opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-/* Bounce animation on hover */
-@keyframes bounce {
-    0%, 100% {
         transform: translateY(0);
-    }
-    25% {
-        transform: translateY(-10px);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    75% {
-        transform: translateY(-5px);
     }
 }
 
@@ -3176,7 +3160,7 @@ a:hover {
     font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: 0.025em;
-    text-transform: uppercase;
+   
 }
 
 p {
@@ -3660,7 +3644,7 @@ span {
         font: 700 45px "Noto Sans", sans-serif;
         color: #3e78ad;
         text-align: center;
-        text-transform: uppercase;
+       
     }
 .about_us__item {overflow: hidden;margin: 54px 0 0 0;padding: 25px 0 10px 0;text-align: center;position: relative;}
 .about_us__item i {display: block;font-size: 60px;color: #3e78ad;cursor: default;
@@ -4492,30 +4476,28 @@ html {
   margin-bottom: 1rem;
   font-family: serif;
   position: relative;
-  animation: bounceIn 1s ease-out;
-  transition: transform 0.3s ease;
+  animation: smoothBounce 1.2s ease-out;
   cursor: default;
 }
 
-.main-headline:hover {
-  animation: bounce 0.6s ease;
+.golden-highlight {
+  color: #f8d24f;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
 }
 
 .sub-headline {
   font-size: 1.8rem;
-  color: #f4e4c1;
+  color: #1e3a8a;
   filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
   font-weight: 600;
   margin-bottom: 2rem;
   font-family: serif;
   position: relative;
-  animation: bounceIn 1.2s ease-out;
-  transition: transform 0.3s ease;
+  animation: smoothBounce 1.4s ease-out;
   cursor: default;
-}
-
-.sub-headline:hover {
-  animation: bounce 0.6s ease;
 }
 
 .sub-headline::after {
@@ -4539,11 +4521,11 @@ html {
 }
 
 .service-item {
-  color: #ffffff;
+  color: #000000;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
   font-size: 1.1rem;
   font-weight: 600;
-  text-transform: uppercase;
+ 
   letter-spacing: 1px;
 }
 
@@ -4655,7 +4637,7 @@ html {
 
 .contact-head-office {
   font-size: 2rem;
-  text-transform: uppercase;
+ 
   opacity: 0.9;
   color: var(--color-dark);
   font-weight: 600;
@@ -5560,15 +5542,7 @@ html {
 	pointer-events: none;
 }
 
-.achievements-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(230, 243, 255, 0.85);
-	z-index: 1;
-}
+
 
 /* Video Testimonials Auto-Scroll Styling */
 .video-testimonials-container {
@@ -6223,7 +6197,7 @@ light   #fffcf5
     font: 700 45px "Noto Sans", sans-serif;
     color: #3e78ad;
     text-align: center;
-    text-transform: uppercase;
+   
   }
 
   /************************ 4.2. MAIN SLIDER ************************/
@@ -6312,7 +6286,7 @@ light   #fffcf5
     font: 700 45px "Noto Sans", sans-serif;
     color: #3e78ad;
     text-align: center;
-    text-transform: uppercase;
+   
   }
 
   .container {
@@ -6751,7 +6725,7 @@ light   #fffcf5
     font: 700 27px "Noto Sans", sans-serif;
     color: #3e78ad;
     text-align: center;
-    text-transform: uppercase;
+    
   }
 
   /************************ MAIN SLIDER ************************/
@@ -12408,7 +12382,7 @@ text-shadow: none;
 				</video>
 				<div class="banner-overlay-2 flex justify-center items-center">
 					<div class="hero-content-wrapper">
-						<h1 class="main-headline">Strategic Finance Advisory</h1>
+						<h1 class="main-headline">Strategic <span class="golden-highlight">Finance</span> Advisory</h1>
 						<h2 class="sub-headline">A Friend for Growth</h2>
 						<div class="services-row">
 							<span class="service-item">Debt Syndication</span>
@@ -12465,7 +12439,7 @@ text-shadow: none;
 				<div class="achievements-overlay"></div>
 				
 				<div class="container" style="position: relative; z-index: 2;">
-					<h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">OUR <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem;">Achievements</span></h2>
+					<h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">OUR <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem;">ACHIEVEMENTS</span></h2>
 					<div style="width: 80px; height: 4px; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); margin: 0 auto 30px; border-radius: 2px;"></div>
 
 					<div class="row counter-up">
@@ -12536,7 +12510,7 @@ text-shadow: none;
 								-webkit-text-fill-color: transparent; 
 								background-clip: text;
 								font-size: 2.2rem;">
-								Services
+								SERVICES
 							</span>
 						</h2>
 							<div style="
@@ -12942,7 +12916,7 @@ text-shadow: none;
 		<!-- FEATURED WORKS -->
 		<section id="cli" class="featured" style="background-color: #ffffff; position: relative;">
 			<div class="container">
-        <h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">OUR <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem;">Clients</span></h2>
+        <h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">OUR <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem;">CLIENTS</span></h2>
 					<div style="width: 80px; height: 4px; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); margin: 0 auto 30px; border-radius: 2px;"></div>
 
 				<div id="slider_featured__2" class="owlslider owl-carousel owl-theme" style="opacity: 1; display: block;">
@@ -13402,7 +13376,7 @@ text-shadow: none;
 		<!-- CONTACT -->
 		<section id="con" class="contact" style="padding: 60px 0; background: #ffffff;">
 			<div class="container">
-				<h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">CONTACT <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem;">Us</span></h2>
+				<h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">CONTACT <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem;">UU</span></h2>
 				<div style="width: 80px; height: 4px; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); margin: 0 auto 30px; border-radius: 2px;"></div>
 			</div>
 			<div class="contact_address flex flex-col wow fadeInUp animated" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
@@ -15779,95 +15753,95 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 		const qs = (sel, ctx = document) => ctx.querySelector(sel);
 
 		// Team data from assets_json
-		const teamData = [
-			{
-				"name": "Ravi Jaisalmeria",
-				"position": "Founder and Director",
-				"bio": "A Chartered Accountant with 2 decade of expertise in Accountancy, Finance, and Investment Banking. He has held leadership roles with a global healthcare giant, a public listed company, and a leading bank. With deep experience in capital raising, mergers & acquisitions, and corporate restructuring, he is known for delivering strategic financial solutions that empower businesses to grow and transform.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Investment Banking", "M&A", "Strategic Planning"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Bhupinder Narendra Garg",
-				"position": "Founder and Director",
-				"bio": "An MBA with over 2 decades of rich experience in Banking and Financial Advisory, with deep expertise in Corporate Finance, Investment Banking, Debt Structuring, Leasing, Forex & Treasury, and Branch Banking. He brings extensive experience in Pharmaceuticals-focused Investment Banking and has successfully driven strategic planning, investments, and corporate lending advisory—delivering innovative financial solutions that create long-term value.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Banking", "Financial Advisory", "Debt Structuring"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Shekhar Shrawankumar Bhuwania",
-				"position": "Founder and Director",
-				"bio": "A Chartered Accountant, Company Secretary, and Law Graduate, he brings over 2 decades of rich and diverse experience across Finance, Investment Banking, Taxation, Legal, Secretarial, and Compliance functions. His professional journey spans leadership roles in a leading Private Sector Bank, a top-tier Law Firm, and one of the Big Four Audit Firms—equipping him with a rare blend of financial acumen, legal expertise, and strategic advisory capabilities.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Legal Advisory", "Compliance", "Taxation"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Mayuri",
-				"position": "Team Leader - Debt Syndication",
-				"bio": "With 10+ years in debt syndication, she has been the bridge between corporates, NBFCs, and growth capital, crafting financial solutions that fuel expansion when it matters most.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Debt Syndication", "Corporate Finance"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Dipika",
-				"position": "Senior Associate",
-				"bio": "CA, with 10+ years of expertise in Debt Syndication, recognized for exceptional people skills and strong relationship-building. She partners with corporates and NBFCs to secure growth capital at critical junctures, enabling them to scale with confidence.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Debt Syndication", "Relationship Management"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Brijen",
-				"position": "Sr. Relationship Manager",
-				"bio": "MBA in Finance with 6+ years of experience in leasing, specializing in operating leases. Skilled in financial analysis, asset management, and building strong client relationships.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Leasing", "Financial Analysis", "Client Relations"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Ayush",
-				"position": "Sr. Relationship Manager",
-				"bio": "Experienced relationship manager with expertise in client acquisition and financial advisory services.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Client Acquisition", "Financial Advisory"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Saurabh",
-				"position": "VP - Debt Syndication",
-				"bio": "CA, 11+ years of experience in financial services industry, excel in corporate relationship management, structuring debt solution and handling complex project finance assignments.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Debt Syndication", "Project Finance", "Corporate Relations"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Yash",
-				"position": "Senior Associate",
-				"bio": "CA with 5+ years of experience. Have worked across the corporate spectrum - from auditing and taxation to M&A and fundraising. Previously at E & Y, was part of India's largest $2Bn+ healthcare deal, honing expertise in deal diligences amongst many other such projects. With a knack for crafting compelling narratives, translating them into numbers, and turning those into strategy, helps clients to bring ideas to life.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["M&A", "Due Diligence", "Strategy"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Laxmikant",
-				"position": "Senior Associate",
-				"bio": "CA with 5+ years of experience in Financial Due Diligence, Transaction Advisory, and Startup Growth Strategy. Formerly at E & Y, worked on buy-side and sell-side deals before founding WealthAlly, a WealthTech platform enabling innovative investments for startups and retail investors. Specializing in scaling startups, structuring fundraises, and driving strategic growth across early and late stage deals.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Due Diligence", "Startup Strategy", "Transaction Advisory"],
-				"linkedin": "#"
-			},
-			{
-				"name": "Varun",
-				"position": "Senior Associate",
-				"bio": "CA with 8+ years of experience with Deloitte and E&Y in transaction advisory which consists of Debt, Private equity and Merger and Acquisition.",
-				"image": "https://www.growthally.org/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-21-at-18.28.36.jpeg",
-				"specialties": ["Transaction Advisory", "Private Equity", "M&A"],
-				"linkedin": "#"
-			},
+	const teamData = [
+		{
+			"name": "Ravi Jaisalmeria",
+			"position": "Founder and Director",
+			"bio": "A Chartered Accountant with 2 decade of expertise in Accountancy, Finance, and Investment Banking. He has held leadership roles with a global healthcare giant, a public listed company, and a leading bank. With deep experience in capital raising, mergers & acquisitions, and corporate restructuring, he is known for delivering strategic financial solutions that empower businesses to grow and transform.",
+			"image": "./assets/ravi.jpg",
+			"specialties": ["Investment Banking", "M&A", "Strategic Planning"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Bhupinder Narendra Garg",
+			"position": "Founder and Director",
+			"bio": "An MBA with over 2 decades of rich experience in Banking and Financial Advisory, with deep expertise in Corporate Finance, Investment Banking, Debt Structuring, Leasing, Forex & Treasury, and Branch Banking. He brings extensive experience in Pharmaceuticals-focused Investment Banking and has successfully driven strategic planning, investments, and corporate lending advisory—delivering innovative financial solutions that create long-term value.",
+			"image": "./assets/bhupi.jpg",
+			"specialties": ["Banking", "Financial Advisory", "Debt Structuring"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Shekhar Shrawankumar Bhuwania",
+			"position": "Founder and Director",
+			"bio": "A Chartered Accountant, Company Secretary, and Law Graduate, he brings over 2 decades of rich and diverse experience across Finance, Investment Banking, Taxation, Legal, Secretarial, and Compliance functions. His professional journey spans leadership roles in a leading Private Sector Bank, a top-tier Law Firm, and one of the Big Four Audit Firms—equipping him with a rare blend of financial acumen, legal expertise, and strategic advisory capabilities.",
+			"image": "./assets/shekher.jpg",
+			"specialties": ["Legal Advisory", "Compliance", "Taxation"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Mayuri",
+			"position": "Team Leader - Debt Syndication",
+			"bio": "With 10+ years in debt syndication, she has been the bridge between corporates, NBFCs, and growth capital, crafting financial solutions that fuel expansion when it matters most.",
+			"image": "./assets/mayuri.jpg",
+			"specialties": ["Debt Syndication", "Corporate Finance"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Dipika",
+			"position": "Senior Associate",
+			"bio": "CA, with 10+ years of expertise in Debt Syndication, recognized for exceptional people skills and strong relationship-building. She partners with corporates and NBFCs to secure growth capital at critical junctures, enabling them to scale with confidence.",
+			"image": "./assets/nupur.jpg",
+			"specialties": ["Debt Syndication", "Relationship Management"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Brijen",
+			"position": "Sr. Relationship Manager",
+			"bio": "MBA in Finance with 6+ years of experience in leasing, specializing in operating leases. Skilled in financial analysis, asset management, and building strong client relationships.",
+			"image": "./assets/jigar.jpg",
+			"specialties": ["Leasing", "Financial Analysis", "Client Relations"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Ayush",
+			"position": "Sr. Relationship Manager",
+			"bio": "Experienced relationship manager with expertise in client acquisition and financial advisory services.",
+			"image": "./assets/jay.jpg",
+			"specialties": ["Client Acquisition", "Financial Advisory"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Saurabh",
+			"position": "VP - Debt Syndication",
+			"bio": "CA, 11+ years of experience in financial services industry, excel in corporate relationship management, structuring debt solution and handling complex project finance assignments.",
+			"image": "./assets/saurab.jpg",
+			"specialties": ["Debt Syndication", "Project Finance", "Corporate Relations"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Yash",
+			"position": "Senior Associate",
+			"bio": "CA with 5+ years of experience. Have worked across the corporate spectrum - from auditing and taxation to M&A and fundraising. Previously at E & Y, was part of India's largest $2Bn+ healthcare deal, honing expertise in deal diligences amongst many other such projects. With a knack for crafting compelling narratives, translating them into numbers, and turning those into strategy, helps clients to bring ideas to life.",
+			"image": "./assets/yash.jpg",
+			"specialties": ["M&A", "Due Diligence", "Strategy"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Laxmikant",
+			"position": "Senior Associate",
+			"bio": "CA with 5+ years of experience in Financial Due Diligence, Transaction Advisory, and Startup Growth Strategy. Formerly at E & Y, worked on buy-side and sell-side deals before founding WealthAlly, a WealthTech platform enabling innovative investments for startups and retail investors. Specializing in scaling startups, structuring fundraises, and driving strategic growth across early and late stage deals.",
+			"image": "./assets/lakshmikant.jpg",
+			"specialties": ["Due Diligence", "Startup Strategy", "Transaction Advisory"],
+			"linkedin": "#"
+		},
+		{
+			"name": "Varun",
+			"position": "Senior Associate",
+			"bio": "CA with 8+ years of experience with Deloitte and E&Y in transaction advisory which consists of Debt, Private equity and Merger and Acquisition.",
+			"image": "./assets/varun.jpg",
+			"specialties": ["Transaction Advisory", "Private Equity", "M&A"],
+			"linkedin": "#"
+		},
 		{
 			"name": "Aditya",
 			"position": "Manager- Client Acquisition",
@@ -15876,7 +15850,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 			"specialties": ["Client Acquisition", "Investment Banking", "Partnerships"],
 			"linkedin": "#"
 		}
-		];
+	];
 
 		// Separate founders and team members
 		const founders = teamData.filter(member => member.position.includes('Founder'));
