@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Media & Press | Growthally Advisors</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Media coverage, press releases, and news mentions about Growthally Advisors' investment banking and financial advisory services.">
+	<meta name="keywords" content="growthally press, media coverage, investment banking news, financial advisory press releases">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/logo.png">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles.css">
+	
+	<style>
+		/* Page-specific styles */
+		body {
+			background: #f8fafc;
+			margin: 0;
+			padding: 0;
+			font-family: 'Noto Sans', sans-serif;
+		}
+		
+		#wrapper_main {
+			overflow-x: hidden;
+			background: #f8fafc;
+			position: relative;
+			z-index: 1;
+		}
+		
+		.media-hero {
+			background: linear-gradient(135deg, #1e3a8a 0%, #3e78ad 100%);
+			padding: 120px 0 80px;
+			text-align: center;
+			color: white;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.media-hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/></pattern></defs><rect width='100' height='100' fill='url(%23grid)'/></svg>");
+			opacity: 0.3;
+		}
+		
+		.media-hero h1 {
+			font-size: 3rem;
+			font-weight: 700;
+			margin-bottom: 20px;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.media-hero p {
+			font-size: 1.2rem;
+			max-width: 700px;
+			margin: 0 auto;
+			opacity: 0.9;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.media-container {
+			max-width: 1200px;
+			margin: 60px auto 80px;
+			padding: 0 20px;
+		}
+		
+		.media-section {
+			margin-bottom: 60px;
+		}
+		
+		.section-title {
+			font-size: 2rem;
+			font-weight: 600;
+			color: #1e3a8a;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+		
+		.section-title::after {
+			content: '';
+			display: block;
+			width: 80px;
+			height: 4px;
+			background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
+			margin: 15px auto 0;
+			border-radius: 2px;
+		}
+		
+		.media-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			gap: 30px;
+			margin-top: 40px;
+		}
+		
+		.media-card {
+			background: white;
+			border-radius: 12px;
+			padding: 30px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+			border-left: 4px solid #3e78ad;
+		}
+		
+		.media-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 12px 30px rgba(62, 120, 173, 0.2);
+			border-left-color: #d4af37;
+		}
+		
+		.media-icon {
+			width: 50px;
+			height: 50px;
+			background: linear-gradient(135deg, #3e78ad, #1e3a8a);
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+		
+		.media-date {
+			color: #d4af37;
+			font-weight: 600;
+			font-size: 0.9rem;
+			margin-bottom: 10px;
+		}
+		
+		.media-title {
+			font-size: 1.3rem;
+			font-weight: 600;
+			color: #1e3a8a;
+			margin-bottom: 15px;
+			line-height: 1.4;
+		}
+		
+		.media-description {
+			color: #4b5563;
+			line-height: 1.6;
+			margin-bottom: 20px;
+		}
+		
+		.media-source {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			color: #6b7280;
+			font-size: 0.9rem;
+			font-style: italic;
+		}
+		
+		.media-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			color: #3e78ad;
+			font-weight: 600;
+			text-decoration: none;
+			margin-top: 15px;
+			transition: all 0.3s ease;
+		}
+		
+		.media-link:hover {
+			color: #1e3a8a;
+			gap: 12px;
+		}
+		
+		.media-kit {
+			background: linear-gradient(135deg, #3e78ad 0%, #1e3a8a 100%);
+			border-radius: 12px;
+			padding: 50px 40px;
+			text-align: center;
+			color: white;
+			margin-top: 60px;
+		}
+		
+		.media-kit h2 {
+			font-size: 2rem;
+			margin-bottom: 20px;
+		}
+		
+		.media-kit p {
+			font-size: 1.1rem;
+			margin-bottom: 30px;
+			opacity: 0.9;
+		}
+		
+		.download-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			background: #d4af37;
+			color: white;
+			padding: 15px 35px;
+			border-radius: 8px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 1.1rem;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+		}
+		
+		.download-btn:hover {
+			background: #f4e4c1;
+			color: #1e3a8a;
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+		}
+		
+		/* Responsive */
+		@media (max-width: 768px) {
+			.media-hero h1 {
+				font-size: 2rem;
+			}
+			
+			.media-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.media-kit {
+				padding: 30px 20px;
+			}
+			
+			.media-kit h2 {
+				font-size: 1.5rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper_main">
+		<!-- Header will be loaded by common.js -->
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="media-hero">
+				<div class="container">
+					<h1>Media & Press</h1>
+					<p>Latest news, press releases, and media coverage about Growthally Advisors</p>
+				</div>
+			</section>
+			
+			<!-- Media Container -->
+			<div class="media-container">
+				<!-- Press Releases -->
+				<section class="media-section">
+					<h2 class="section-title">Press Releases</h2>
+					<div class="media-grid">
+						<div class="media-card">
+							<div class="media-icon">
+								<i class="fas fa-newspaper"></i>
+							</div>
+							<div class="media-date">December 2024</div>
+							<h3 class="media-title">Growthally Advisors Celebrates 15 Years of Excellence in Investment Banking</h3>
+							<p class="media-description">Marking over a decade and a half of delivering comprehensive financial advisory services, Growthally Advisors reflects on its journey of facilitating transactions worth over ₹2000 crores.</p>
+							<a href="mailto:info@growthally.org?subject=Press%20Release%20Inquiry" class="media-link">
+								Contact for Details <i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+						
+						<div class="media-card">
+							<div class="media-icon">
+								<i class="fas fa-award"></i>
+							</div>
+							<div class="media-date">November 2024</div>
+							<h3 class="media-title">Growthally Expands Team with Key Strategic Hires</h3>
+							<p class="media-description">Strengthening its expertise in equity advisory and M&A transactions, Growthally welcomes seasoned professionals from top-tier firms to drive growth.</p>
+							<a href="mailto:info@growthally.org?subject=Press%20Release%20Inquiry" class="media-link">
+								Read More <i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+						
+						<div class="media-card">
+							<div class="media-icon">
+								<i class="fas fa-handshake"></i>
+							</div>
+							<div class="media-date">October 2024</div>
+							<h3 class="media-title">Strategic Partnership Announcement</h3>
+							<p class="media-description">Growthally Advisors announces strategic partnerships with leading financial institutions to enhance debt syndication capabilities across sectors.</p>
+							<a href="mailto:info@growthally.org?subject=Press%20Release%20Inquiry" class="media-link">
+								Learn More <i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Media Coverage -->
+				<section class="media-section">
+					<h2 class="section-title">Media Coverage</h2>
+					<div class="media-grid">
+						<div class="media-card">
+							<div class="media-icon">
+								<i class="fas fa-newspaper"></i>
+							</div>
+							<div class="media-date">Featured Article</div>
+							<h3 class="media-title">Investment Banking for India's Growing Mid-Market Segment</h3>
+							<p class="media-description">Industry experts highlight Growthally's role in democratizing access to sophisticated financial advisory services for mid-sized enterprises.</p>
+							<div class="media-source">
+								<i class="fas fa-building"></i>
+								Financial Services Industry News
+							</div>
+						</div>
+						
+						<div class="media-card">
+							<div class="media-icon">
+								<i class="fas fa-microphone"></i>
+							</div>
+							<div class="media-date">Interview</div>
+							<h3 class="media-title">Navigating Complex M&A Transactions in 2024</h3>
+							<p class="media-description">Founders share insights on current M&A trends and strategies for successful deal execution in the evolving business landscape.</p>
+							<div class="media-source">
+								<i class="fas fa-video"></i>
+								Business Leadership Podcast
+							</div>
+						</div>
+						
+						<div class="media-card">
+							<div class="media-icon">
+								<i class="fas fa-trophy"></i>
+							</div>
+							<div class="media-date">Recognition</div>
+							<h3 class="media-title">Excellence in Debt Syndication Services</h3>
+							<p class="media-description">Growthally recognized for outstanding performance in structuring complex debt transactions across multiple sectors.</p>
+							<div class="media-source">
+								<i class="fas fa-award"></i>
+								Industry Excellence Awards
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Media Kit -->
+				<section class="media-kit">
+					<h2>Download Our Media Kit</h2>
+					<p>Get insights into our investment banking services and success stories.</p>
+					<a href="assets/presentation.pdf" class="download-btn" download>
+						<i class="fas fa-download"></i>
+						Download Media Kit
+					</a>
+				</section>
+				
+				<!-- Contact Section -->
+				<section class="media-section" style="margin-top: 60px;">
+					<div style="background: white; border-radius: 12px; padding: 40px; text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+						<h2 style="color: #1e3a8a; margin-bottom: 15px;">Media Inquiries</h2>
+						<p style="color: #6b7280; margin-bottom: 25px; font-size: 1.1rem;">For press releases, media inquiries, or interview requests, please contact us:</p>
+						<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px;">
+							<a href="mailto:info@growthally.org" style="display: flex; align-items: center; gap: 10px; color: #3e78ad; text-decoration: none; font-weight: 600; font-size: 1.1rem;">
+								<i class="fas fa-envelope" style="font-size: 24px;"></i>
+								info@growthally.org
+							</a>
+							<a href="tel:+917506236027" style="display: flex; align-items: center; gap: 10px; color: #3e78ad; text-decoration: none; font-weight: 600; font-size: 1.1rem;">
+								<i class="fas fa-phone" style="font-size: 24px;"></i>
+								+91-75062-36027
+							</a>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+		
+		<!-- Footer will be loaded by common.js -->
+	</div>
+	
+	<!-- Common JS for navigation and footer -->
+	<script src="common.js"></script>
+</body>
+</html>
+

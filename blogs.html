@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Insights & Blogs | Growthally Advisors</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Read expert insights on debt syndication, M&A, equity advisory, and financial consulting from Growthally Advisors' thought leaders.">
+	<meta name="keywords" content="investment banking blogs, financial advisory insights, debt syndication, M&A trends, equity advisory">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/logo.png">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles.css">
+	
+	<style>
+		/* Page-specific styles */
+		body {
+			background: #f8fafc;
+			margin: 0;
+			padding: 0;
+			font-family: 'Noto Sans', sans-serif;
+		}
+		
+		#wrapper_main {
+			overflow-x: hidden;
+			background: #f8fafc;
+			position: relative;
+			z-index: 1;
+		}
+		
+		.blogs-hero {
+			background: linear-gradient(135deg, #1e3a8a 0%, #3e78ad 100%);
+			padding: 120px 0 80px;
+			text-align: center;
+			color: white;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.blogs-hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/></pattern></defs><rect width='100' height='100' fill='url(%23grid)'/></svg>");
+			opacity: 0.3;
+		}
+		
+		.blogs-hero h1 {
+			font-size: 3rem;
+			font-weight: 700;
+			margin-bottom: 20px;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.blogs-hero p {
+			font-size: 1.2rem;
+			max-width: 700px;
+			margin: 0 auto;
+			opacity: 0.9;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.blogs-container {
+			max-width: 1200px;
+			margin: -40px auto 80px;
+			padding: 0 20px;
+			position: relative;
+			z-index: 10;
+		}
+		
+		.blog-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			gap: 30px;
+			margin-top: 40px;
+		}
+		
+		.blog-card {
+			background: white;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+			cursor: pointer;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.blog-card:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 12px 30px rgba(62, 120, 173, 0.2);
+		}
+		
+		.blog-image {
+			width: 100%;
+			height: 220px;
+			object-fit: cover;
+			display: block;
+		}
+		
+		.blog-content {
+			padding: 25px;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.blog-meta {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			margin-bottom: 15px;
+			font-size: 0.9rem;
+			color: #6b7280;
+		}
+		
+		.blog-author {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		
+		.blog-author i {
+			color: #3e78ad;
+		}
+		
+		.blog-date {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		
+		.blog-date i {
+			color: #d4af37;
+		}
+		
+		.blog-title {
+			font-size: 1.5rem;
+			font-weight: 600;
+			color: #1e3a8a;
+			margin-bottom: 15px;
+			line-height: 1.4;
+		}
+		
+		.blog-excerpt {
+			color: #4b5563;
+			line-height: 1.6;
+			margin-bottom: 20px;
+			flex: 1;
+		}
+		
+		.blog-read-more {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			color: #3e78ad;
+			font-weight: 600;
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+		
+		.blog-read-more:hover {
+			color: #1e3a8a;
+			gap: 12px;
+		}
+		
+		/* Blog Modal */
+		.blog-modal {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.8);
+			z-index: 9999;
+			overflow-y: auto;
+			padding: 20px;
+		}
+		
+		.blog-modal.active {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.blog-modal-content {
+			background: white;
+			border-radius: 12px;
+			max-width: 900px;
+			width: 100%;
+			max-height: 90vh;
+			overflow-y: auto;
+			position: relative;
+			animation: slideIn 0.3s ease;
+		}
+		
+		@keyframes slideIn {
+			from {
+				opacity: 0;
+				transform: translateY(-50px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+		
+		.blog-modal-close {
+			position: sticky;
+			top: 20px;
+			right: 20px;
+			float: right;
+			background: #3e78ad;
+			color: white;
+			border: none;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			font-size: 20px;
+			cursor: pointer;
+			z-index: 10;
+			transition: all 0.3s ease;
+		}
+		
+		.blog-modal-close:hover {
+			background: #1e3a8a;
+			transform: rotate(90deg);
+		}
+		
+		.blog-modal-image {
+			width: 100%;
+			height: 400px;
+			object-fit: cover;
+		}
+		
+		.blog-modal-body {
+			padding: 40px;
+		}
+		
+		.blog-modal-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: #1e3a8a;
+			margin-bottom: 20px;
+			line-height: 1.3;
+		}
+		
+		.blog-modal-meta {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			margin-bottom: 30px;
+			padding-bottom: 20px;
+			border-bottom: 2px solid #e2e8f0;
+		}
+		
+		.blog-modal-content-text {
+			color: #374151;
+			font-size: 1.1rem;
+			line-height: 1.8;
+			white-space: pre-line;
+		}
+		
+		.blog-modal-content-text h3 {
+			color: #1e3a8a;
+			margin-top: 30px;
+			margin-bottom: 15px;
+		}
+		
+		.blog-modal-content-text strong {
+			color: #1e3a8a;
+		}
+		
+		/* Responsive */
+		@media (max-width: 768px) {
+			.blogs-hero h1 {
+				font-size: 2rem;
+			}
+			
+			.blog-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.blog-modal-content {
+				margin: 20px;
+			}
+			
+			.blog-modal-body {
+				padding: 20px;
+			}
+			
+			.blog-modal-title {
+				font-size: 1.8rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper_main">
+		<!-- Header will be loaded by common.js -->
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="blogs-hero">
+				<div class="container">
+					<h1>Insights & Perspectives</h1>
+					<p>Expert insights on investment banking, M&A, debt syndication, and financial advisory from our thought leaders</p>
+				</div>
+			</section>
+			
+			<!-- Blogs Container -->
+			<div class="blogs-container">
+				<div class="blog-grid" id="blogGrid">
+					<!-- Blog cards will be dynamically loaded here -->
+				</div>
+			</div>
+		</main>
+		
+		<!-- Footer will be loaded by common.js -->
+	</div>
+	
+	<!-- Blog Modal -->
+	<div class="blog-modal" id="blogModal">
+		<div class="blog-modal-content">
+			<button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
+			<img class="blog-modal-image" id="modalImage" src="" alt="">
+			<div class="blog-modal-body">
+				<h2 class="blog-modal-title" id="modalTitle"></h2>
+				<div class="blog-modal-meta" id="modalMeta"></div>
+				<div class="blog-modal-content-text" id="modalContent"></div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Common JS for navigation and footer -->
+	<script src="common.js"></script>
+	
+	<!-- Blog Data and Logic -->
+	<script>
+		const blogs = [
+			{
+				id: 1,
+				title: "Navigating Debt Syndication in 2025",
+				excerpt: "Key strategies for securing optimal debt structures in the current market environment.",
+				author: "Ravi Jaisalmeria",
+				date: "August 15, 2025",
+				image: "https://www.growthally.org/wp-content/uploads/2022/02/funding-invest-financial-money-budget-concept-1024x594.jpg",
+				content: "In today's dynamic financial landscape, debt syndication has become increasingly complex yet more critical than ever for businesses seeking growth capital. The traditional approaches to debt structuring are evolving, driven by regulatory changes, market volatility, and shifting lender preferences.\n\nKey Considerations for 2025:\n\n1. **Digital Documentation**: The shift towards digital loan documentation has accelerated post-pandemic. Lenders now expect comprehensive digital due diligence packages, making data room preparation more crucial than ever.\n\n2. **ESG Compliance**: Environmental, Social, and Governance factors are no longer optional. Lenders are increasingly incorporating ESG criteria into their lending decisions, making sustainability reporting essential.\n\n3. **Alternative Lending Sources**: Traditional banks are no longer the only game in town. NBFCs, private credit funds, and fintech lenders offer diverse options with varying terms and requirements.\n\n4. **Interest Rate Volatility**: With fluctuating interest rates, businesses must be strategic about timing and structure. Fixed vs. floating rate decisions can significantly impact long-term cost of capital.\n\nAt Growthally, we've successfully syndicated over ₹500 crores in debt across various sectors, helping our clients navigate these complexities while securing optimal terms. Our approach combines deep market knowledge with strong lender relationships, ensuring our clients get the best possible outcomes.\n\nThe key to successful debt syndication lies in preparation, presentation, and partnership. We work closely with our clients to tell their story compellingly while structuring deals that meet both borrower needs and lender requirements."
+			},
+			{
+				id: 2,
+				title: "The Rise of Alternative Funding for SMEs",
+				excerpt: "Exploring new funding avenues beyond traditional banking for small and medium enterprises.",
+				author: "Bhupinder Garg",
+				date: "August 10, 2025",
+				image: "https://www.growthally.org/wp-content/uploads/2022/01/Services.png",
+				content: "Small and Medium Enterprises (SMEs) in India are experiencing a funding revolution. Traditional bank lending, while still important, is no longer the sole avenue for business growth capital. This shift presents both opportunities and challenges for SME owners seeking to scale their operations.\n\n**The New Funding Landscape:**\n\nDigital lending platforms have democratized access to capital, offering faster processing times and more flexible terms than traditional banks. However, this convenience often comes with higher interest rates and shorter repayment periods.\n\nPrivate credit funds are emerging as serious alternatives, particularly for established SMEs with strong cash flows. These funds often provide more patient capital and flexible structures compared to traditional lenders.\n\n**Sectoral Considerations:**\n\nManufacturing SMEs benefit from asset-backed lending options, including equipment financing and invoice discounting. Technology companies, on the other hand, can explore revenue-based financing and venture debt options.\n\nThe pharmaceutical sector, given its long development cycles, requires specialized funding structures that account for regulatory timelines and clinical trial costs.\n\n**Strategic Approach:**\n\nSuccessful SME funding requires a multi-pronged approach. We recommend maintaining relationships with multiple funding sources while building strong financial documentation and reporting systems.\n\nAt Growthally, we've helped over 200 SMEs secure funding through various channels, ensuring they get the right type of capital at the right cost for their specific growth stage and sector requirements."
+			},
+			{
+				id: 3,
+				title: "M&A Trends Shaping 2025",
+				excerpt: "Current merger and acquisition trends and their impact on mid-market deals in India.",
+				author: "Shekhar Bhuwania",
+				date: "August 5, 2025",
+				image: "https://www.growthally.org/wp-content/uploads/2022/01/Mergers-Acquisitions-1-7.png",
+				content: "The Indian M&A landscape in 2025 is characterized by strategic consolidation, technology-driven transactions, and increasing focus on sustainable business models. Mid-market deals, particularly in the ₹50-500 crore range, are seeing unprecedented activity.\n\n**Key Trends Observed:**\n\n**1. Technology Integration:** Traditional businesses are acquiring tech startups to digitize their operations. We're seeing manufacturing companies acquire logistics tech firms, and financial services companies investing in fintech startups.\n\n**2. Succession Planning:** Family-owned businesses are increasingly open to strategic partnerships and partial exits as founders look toward succession planning. This trend is particularly strong in the manufacturing and trading sectors.\n\n**3. Cross-Border Interest:** International investors are showing renewed interest in Indian mid-market companies, particularly in sectors like pharmaceuticals, IT services, and renewable energy.\n\n**4. Distressed Asset Opportunities:** The post-pandemic recovery has created opportunities for strategic buyers to acquire quality assets at attractive valuations.\n\n**Valuation Considerations:**\n\nCurrent market conditions favor buyers, with valuation multiples stabilizing after the highs of 2021-2022. However, quality companies with strong fundamentals continue to command premium valuations.\n\nDue diligence processes have become more rigorous, with increased focus on ESG compliance, cybersecurity, and business continuity planning.\n\n**Strategic Insights:**\n\nFor sellers, preparation is key. Companies that invest in professional financial reporting, legal compliance, and strategic planning fetch better valuations and complete transactions more smoothly.\n\nBuyers are increasingly looking for companies with recurring revenue models, strong management teams, and clear growth strategies.\n\nAt Growthally, our M&A advisory services have facilitated transactions worth over ₹800 crores, helping both buyers and sellers navigate this complex landscape while maximizing value for all stakeholders."
+			}
+		];
+		
+		// Render blog cards
+		function renderBlogs() {
+			const blogGrid = document.getElementById('blogGrid');
+			if (!blogGrid) return;
+			
+			blogGrid.innerHTML = blogs.map(blog => `
+				<div class="blog-card" onclick="openBlogModal(${blog.id})">
+					<img class="blog-image" src="${blog.image}" alt="${blog.title}" loading="lazy">
+					<div class="blog-content">
+						<div class="blog-meta">
+							<span class="blog-author">
+								<i class="fas fa-user"></i>
+								${blog.author}
+							</span>
+							<span class="blog-date">
+								<i class="fas fa-calendar"></i>
+								${blog.date}
+							</span>
+						</div>
+						<h3 class="blog-title">${blog.title}</h3>
+						<p class="blog-excerpt">${blog.excerpt}</p>
+						<a class="blog-read-more">
+							Read More <i class="fas fa-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+			`).join('');
+		}
+		
+		// Open blog modal
+		function openBlogModal(blogId) {
+			const blog = blogs.find(b => b.id === blogId);
+			if (!blog) return;
+			
+			document.getElementById('modalImage').src = blog.image;
+			document.getElementById('modalTitle').textContent = blog.title;
+			document.getElementById('modalMeta').innerHTML = `
+				<span class="blog-author">
+					<i class="fas fa-user"></i>
+					${blog.author}
+				</span>
+				<span class="blog-date">
+					<i class="fas fa-calendar"></i>
+					${blog.date}
+				</span>
+			`;
+			document.getElementById('modalContent').textContent = blog.content;
+			document.getElementById('blogModal').classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
+		
+		// Close blog modal
+		function closeBlogModal() {
+			document.getElementById('blogModal').classList.remove('active');
+			document.body.style.overflow = 'auto';
+		}
+		
+		// Close modal on background click
+		document.getElementById('blogModal').addEventListener('click', function(e) {
+			if (e.target === this) {
+				closeBlogModal();
+			}
+		});
+		
+		// Close modal on escape key
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape') {
+				closeBlogModal();
+			}
+		});
+		
+		// Initialize
+		document.addEventListener('DOMContentLoaded', function() {
+			renderBlogs();
+		});
+	</script>
+</body>
+</html>
+

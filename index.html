@@ -2059,6 +2059,135 @@ footer {
         margin-bottom: 1rem;
     }
 }
+
+/* Founders Section - Alternating Layout */
+.founders-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.founder-row {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(62, 120, 173, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.founder-row:hover {
+  box-shadow: 0 8px 25px rgba(62, 120, 173, 0.2);
+  transform: translateY(-2px);
+}
+
+.founder-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.founder-photo {
+  flex: 0 0 240px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 3px solid var(--primary-blue);
+  box-shadow: 0 4px 15px rgba(62, 120, 173, 0.2);
+}
+
+.founder-photo img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.founder-row:hover .founder-photo img {
+  transform: scale(1.05);
+}
+
+.founder-content {
+  flex: 1;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.founder-content h3 {
+  color: #1e3a8a;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.founder-content .position {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, #3e78ad, #2a5a8a);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.founder-content .bio {
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.founder-content .linkedin-link {
+  color: #3e78ad;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.founder-content .linkedin-link:hover {
+  color: #1e3a8a;
+  text-decoration: underline;
+}
+
+/* Mobile Responsive - Founders Section */
+@media (max-width: 768px) {
+  .founder-row,
+  .founder-row.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .founder-photo {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+  }
+  
+  .founder-photo img {
+    height: 260px;
+  }
+  
+  .founder-content {
+    padding: 0;
+  }
+  
+  .founder-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .founder-content .bio {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+}
 </style>
 
 <!-- Growthally Website Data -->
@@ -12007,12 +12136,7 @@ text-shadow: none;
 			box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 		}
 		
-	.team-member-img img {
-		width: 100%;
-		height: 140px;
-		object-fit: cover;
-	}
-		
+
 		/* Job Cards Styling */
 		.job-cards-container {
 			margin-bottom: 40px;
@@ -12357,7 +12481,7 @@ text-shadow: none;
 	</script>
 
 	<div id="wrapper_main">
-				<!-- HEADER -->
+		<!-- HEADER -->
 		<header id="header" class="normal initial-load">
 			<div class="container">
 				<!-- LOGO -->
@@ -12368,24 +12492,24 @@ text-shadow: none;
 					<p class="registered_mark">®</p>
 				</div>
 
-				<!-- MAIN MENU -->
-				<i class="icon_menu visible-sm visible-xs"></i>
-				<!-- <i class="back_top_mobile arrow_carrot-up" style="display: none;"></i> -->
-				<nav id="menu_main" role="navigation" aria-label="Main navigation">
-					<ul role="menubar">
-						<li role="none"><a href="#ab" role="menuitem">About Us</a></li>
-						<li role="none"><a href="#ser" role="menuitem">Services</a></li>
-						<li role="none"><a href="#team" role="menuitem">Team</a></li>
-						<li role="none"><a href="#cli" role="menuitem">Clients</a></li>
-						<li role="none"><a href="#test" role="menuitem">Testimonials</a></li>
-						<li role="none"><a href="#car" role="menuitem">Careers</a></li>
-						<!-- <li role="none"><a href="#gallery" role="menuitem">Gallery</a></li> -->
-						<li role="none"><a href="#con" role="menuitem">Contact</a></li>
-					</ul>
-				</nav>
+			<!-- MAIN MENU -->
+			<i class="icon_menu visible-sm visible-xs"></i>
+			<nav id="menu_main" role="navigation" aria-label="Main navigation">
+				<ul role="menubar">
+					<li role="none"><a href="#ab" role="menuitem">About Us</a></li>
+					<li role="none"><a href="#ser" role="menuitem">Services</a></li>
+					<li role="none"><a href="#team" role="menuitem">Team</a></li>
+					<li role="none"><a href="#cli" role="menuitem">Clients</a></li>
+					<li role="none"><a href="#test" role="menuitem">Testimonials</a></li>
+					<li role="none"><a href="#car" role="menuitem">Careers</a></li>
+					<li role="none"><a href="blogs.html" role="menuitem">Blogs</a></li>
+					<li role="none"><a href="media.html" role="menuitem">Media</a></li>
+					<li role="none"><a href="gallery.html" role="menuitem">Gallery</a></li>
+					<li role="none"><a href="#con" role="menuitem">Contact</a></li>
+				</ul>
+			</nav>
 			</div>
 		</header>
-
 
 		<div id="wrapper_scroll">
 			<div class="hero-banner" id="home">
@@ -12406,10 +12530,310 @@ text-shadow: none;
 						</div>
 					</div>
 				</div>
-			</div>
+		</div>
 
-			<!-- WHO WE ARE -->
-			<section id="ab" class="about_us" aria-labelledby="about-heading" style="padding: 40px 0; background: #ffffff;">
+		<!-- TRANSACTIONS MARQUEE -->
+		<section class="transactions-marquee-section" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); padding: 60px 0; overflow: hidden;">
+			<div class="container" style="margin-bottom: 30px;">
+        <h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">LIVE <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem; font-weight: 600; vertical-align: baseline; display: inline;">TRANSACTIONS</span></h2>
+
+				
+				<p style="text-align: center; color: #6b7280; font-size: 1rem; margin-bottom: 0;">Deals in progress and recently completed transactions</p>
+			</div>
+			
+			<div class="marquee-wrapper" style="position: relative; width: 100%; overflow: hidden;">
+				<div class="marquee-content" id="marqueeContent" style="display: flex; gap: 30px; animation: marquee 60s linear infinite;">
+					<!-- Transaction cards will be dynamically loaded here -->
+				</div>
+			</div>
+		</section>
+
+		<style>
+			@keyframes marquee {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+			
+			.transaction-card {
+				min-width: 280px;
+				max-width: 280px;
+				background: white;
+				border-radius: 10px;
+				padding: 18px;
+				box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+				border-left: 3px solid #3e78ad;
+				transition: all 0.3s ease;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+			
+			.transaction-card:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 6px 20px rgba(62, 120, 173, 0.15);
+				border-left-color: #d4af37;
+			}
+			
+			.transaction-card.active {
+				border-left-color: #10b981;
+			}
+			
+			.transaction-header {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+			
+			.transaction-logo {
+				width: 40px;
+				height: 40px;
+				object-fit: contain;
+				border-radius: 6px;
+				border: 1px solid #e2e8f0;
+				padding: 4px;
+				background: white;
+				flex-shrink: 0;
+			}
+			
+			.transaction-info {
+				flex: 1;
+				min-width: 0;
+			}
+			
+			.transaction-info h3 {
+				margin: 0 0 4px 0;
+				font-size: 0.95rem;
+				font-weight: 600;
+				color: #1e3a8a;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.transaction-type {
+				font-size: 0.8rem;
+				color: #6b7280;
+				font-weight: 500;
+			}
+			
+			.transaction-badge {
+				display: inline-block;
+				padding: 3px 8px;
+				border-radius: 10px;
+				font-size: 0.7rem;
+				font-weight: 600;
+				margin-top: 3px;
+			}
+			
+			.transaction-badge.active {
+				background: #d1fae5;
+				color: #065f46;
+			}
+			
+			.transaction-badge.completed {
+				background: #dbeafe;
+				color: #1e40af;
+			}
+			
+			.transaction-amount {
+				font-size: 1.4rem;
+				font-weight: 700;
+				color: #d4af37;
+				text-align: center;
+				padding: 8px;
+				background: linear-gradient(135deg, #fff8dc 0%, #ffffff 100%);
+				border-radius: 6px;
+				margin-top: 5px;
+			}
+			
+			.transaction-meta {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 0.75rem;
+				color: #9ca3af;
+				margin-top: 5px;
+			}
+			
+			@media (max-width: 768px) {
+				.transaction-card {
+					min-width: 240px;
+					max-width: 240px;
+					padding: 15px;
+				}
+				
+				.transaction-logo {
+					width: 35px;
+					height: 35px;
+				}
+				
+				.transaction-info h3 {
+					font-size: 0.9rem;
+				}
+				
+				.transaction-amount {
+					font-size: 1.2rem;
+				}
+			}
+		</style>
+
+		<script>
+			// Transaction data
+			const transactionsData = {
+				active_transaction: [
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "TechCorp Industries",
+						deal_type: "Debt Syndication",
+						amount: "₹40 Cr"
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "Pharma Solutions Ltd",
+						deal_type: "Equity Funding",
+						amount: "₹25 Cr"
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "Manufacturing Hub",
+						deal_type: "M&A Advisory",
+						amount: "₹60 Cr"
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "Green Energy Corp",
+						deal_type: "Structured Finance",
+						amount: "₹35 Cr"
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "FinTech Startup",
+						deal_type: "Series A Funding",
+						amount: "₹18 Cr"
+					}
+				],
+				completed_transactions: [
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "Steel Manufacturing Co.",
+						deal_type: "Debt Syndication",
+						amount: "₹45 Cr",
+						sector: "Manufacturing",
+						completed_date: "Q1 2025",
+						description: "Structured debt facility for capacity expansion and working capital requirements."
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "HealthTech Solutions",
+						deal_type: "Series B Funding",
+						amount: "₹30 Cr",
+						sector: "Healthcare Technology",
+						completed_date: "Q4 2024",
+						description: "Growth capital for digital health platform expansion across tier-2 cities."
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "Agri-Processing Unit",
+						deal_type: "M&A Advisory",
+						amount: "₹65 Cr",
+						sector: "Agriculture",
+						completed_date: "Q3 2024",
+						description: "Strategic acquisition advisory for consolidation in food processing sector."
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "Logistics Network Pvt",
+						deal_type: "Private Equity",
+						amount: "₹28 Cr",
+						sector: "Logistics",
+						completed_date: "Q2 2024",
+						description: "PE investment for last-mile delivery network expansion."
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "EdTech Platform",
+						deal_type: "Growth Capital",
+						amount: "₹22 Cr",
+						sector: "Education Technology",
+						completed_date: "Q1 2024",
+						description: "Funding for AI-powered learning platform development and market expansion."
+					},
+					{
+						logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+						company_name: "Renewable Energy Co.",
+						deal_type: "Project Financing",
+						amount: "₹85 Cr",
+						sector: "Renewable Energy",
+						completed_date: "Q4 2023",
+						description: "Solar project financing with innovative green bond structuring."
+					}
+				]
+			};
+
+			// Render transaction cards
+			function renderTransactions() {
+				const marqueeContent = document.getElementById('marqueeContent');
+				if (!marqueeContent) return;
+
+				// Combine all transactions
+				const allTransactions = [
+					...transactionsData.active_transaction.map(t => ({ ...t, status: 'active' })),
+					...transactionsData.completed_transactions.map(t => ({ ...t, status: 'completed' }))
+				];
+
+				// Create transaction cards HTML with minimal info
+				const cardsHTML = allTransactions.map(transaction => {
+					const isActive = transaction.status === 'active';
+					return `
+						<div class="transaction-card ${isActive ? 'active' : ''}">
+							<div class="transaction-header">
+								<img src="${transaction.logo}" alt="${transaction.company_name}" class="transaction-logo" loading="lazy">
+								<div class="transaction-info">
+									<h3 title="${transaction.company_name}">${transaction.company_name}</h3>
+									<div class="transaction-type">${transaction.deal_type}</div>
+								</div>
+							</div>
+							<div class="transaction-amount">${transaction.amount}</div>
+							<div class="transaction-meta">
+								<span class="transaction-badge ${isActive ? 'active' : 'completed'}">
+									${isActive ? '⏳ Active' : '✓ Done'}
+								</span>
+								${transaction.completed_date ? `${transaction.completed_date}` : 'In Progress'}
+							</div>
+						</div>
+					`;
+				}).join('');
+
+				// Duplicate content for infinite loop effect
+				marqueeContent.innerHTML = cardsHTML + cardsHTML;
+			}
+
+			// Initialize marquee
+			document.addEventListener('DOMContentLoaded', function() {
+				renderTransactions();
+				
+				// Pause animation on hover
+				const marqueeWrapper = document.querySelector('.marquee-wrapper');
+				const marqueeContent = document.getElementById('marqueeContent');
+				
+				if (marqueeWrapper && marqueeContent) {
+					marqueeWrapper.addEventListener('mouseenter', () => {
+						marqueeContent.style.animationPlayState = 'paused';
+					});
+					
+					marqueeWrapper.addEventListener('mouseleave', () => {
+						marqueeContent.style.animationPlayState = 'running';
+					});
+				}
+			});
+		</script>
+
+		<!-- WHO WE ARE -->
+		<section id="ab" class="about_us" aria-labelledby="about-heading" style="padding: 40px 0; background: #ffffff;">
 				<div class="container">
 					<div class="about_us__text">
 						<!-- <h2>ABOUT <span>GROWTHALLY</span></h2> -->
@@ -12899,22 +13323,16 @@ text-shadow: none;
 			<div class="container">
 				
 				
-				<!-- Founders Section -->
-				<div class="founders-section mb-4">
-					<div class="row mb-3">
-						<div class="col-12 text-center">
-              <h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">OUR <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem; font-weight: 600; vertical-align: baseline; display: inline;">FOUNDERS</span></h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4">
-							<div id="founder-details" class="founder-details"></div>
-						</div>
-						<div class="col-lg-8">
-							<div class="row" id="founders-grid"></div>
-						</div>
+			<!-- Founders Section -->
+			<div class="founders-section mb-4">
+				<div class="row mb-3">
+					<div class="col-12 text-center">
+            <h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">OUR <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem; font-weight: 600; vertical-align: baseline; display: inline;">FOUNDERS</span></h2>
 					</div>
 				</div>
+				<!-- Founders will be dynamically loaded here with alternating layout -->
+				<div id="founders-container" class="founders-container"></div>
+			</div>
 				
 				<!-- Team Members Section -->
 				<div class="team-members-section">
@@ -13342,56 +13760,8 @@ text-shadow: none;
 
 
 		<!-- CONTACT -->
-		<section id="con" class="contact" style="padding: 40px 0; background: #ffffff;">
-			<div class="container">
-				<h2 class="wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; color: #1e3a8a; font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">CONTACT <span style="color: #d4af37; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2.2rem; font-weight: 600; vertical-align: baseline; display: inline;">US</span></h2>
-				<div style="width: 80px; height: 4px; background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%); margin: 0 auto 30px; border-radius: 2px;"></div>
-			</div>
-			<div class="contact_address flex flex-col wow fadeInUp animated" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
-				<!-- <div class=""> -->
-				<h5 class="row mx-auto col-sm-9" style=" margin-bottom: 2rem">
-					Thank you for visiting our website. If you are looking for any solutions or financial offerings, we
-					would love to hear you.
-					Please contact us on
-					<b>
-						<a href="mailto:info@growthally.org" class="contact-link">info@growthally.org</a></b>
-				</h5>
-				<!-- </div> -->
-				<div class="row head-office-row col-xs-12 col-lg-9 mx-auto">
-					<div class="col-sm-5 flex items-center justify-start">
-						<img class="head-office-icon" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Office Location" loading="lazy">
-						<h3 class="contact-head-office">Head office</h3>
-					</div>
-					<div class="col-sm-7 main-office">
-						<div class="flex">
-							<img class="shift-y-point1 contact-icon" alt="Address" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" loading="lazy">
-							<p>
-								Growthally Advisors Pvt Ltd,
-								21A, Vasudev Chambers, Old Nagardas Cross Lane, <br>
-								Near Andheri Subway, Andheri East, Mumbai – 400069, Maharashtra, India<br>
-							</p>
-						</div>
-
-						<div class="flex items-center w-full">
-							<img class="contact-icon" alt="Contact number" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" loading="lazy">
-							<a href="tel:+917506236027" class="contact-link">+91 75062 36027</a>
-						</div>
-
-						<div class="flex items-center w-full">
-							<img class="contact-icon" alt="Location" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" loading="lazy">
-							<a href="https://www.google.com/maps?ll=19.124242,72.84942&z=11&t=m&hl=en-US&gl=US&mapclient=embed&cid=11552372127711480150" target="_blank" style="color: blue;">
-								View location on maps
-							</a>
-						</div>
-						<!-- <div class="flex items-center w-full">
-							<img class="contact-icon" alt="Email" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" loading="lazy" />
-							<a href="mailto:info@growthally.org" class="contact-link">info@growthally.org</a>
-						</div> -->
-					</div>
-				</div>
-			
-			</div>
-	</section></div>
+		
+</div>
 	
 	
 
@@ -15872,53 +16242,41 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 		const founders = teamData.filter(member => member.position.includes('Founder'));
 		const teamMembers = teamData.filter(member => !member.position.includes('Founder'));
 
-		// Function to populate founders grid
-		function populateFoundersGrid() {
-			const foundersGrid = qs('#founders-grid');
-			if (!foundersGrid) return;
+	// Function to populate founders with alternating layout
+	function populateFoundersGrid() {
+		const foundersContainer = qs('#founders-container');
+		if (!foundersContainer) return;
 
-		foundersGrid.innerHTML = founders.map((member, index) => `
+		foundersContainer.innerHTML = founders.map((member, index) => {
+			const isReverse = index % 2 !== 0; // Alternate: even index = normal, odd index = reverse
+			return `
+				<div class="founder-row ${isReverse ? 'reverse' : ''}" data-founder-index="${index}">
+					<div class="founder-photo">
+						<img src="${member.image}" alt="${member.name}" loading="lazy">
+					</div>
+					<div class="founder-content">
+						<h3>${member.name}</h3>
+						<div class="position">${member.position}</div>
+						<div class="bio">${member.bio}</div>
+						${member.linkedin !== '#' ? `<a href="${member.linkedin}" class="linkedin-link" target="_blank" rel="noopener">LinkedIn Profile →</a>` : ''}
+					</div>
+				</div>
+			`;
+		}).join('');
+	}
+
+	// Function to populate team members grid
+	function populateTeamMembersGrid() {
+		const teamMembersGrid = qs('#team-members-grid');
+		if (!teamMembersGrid) return;
+
+		teamMembersGrid.innerHTML = teamMembers.map((member, index) => `
 			<div class="col-md-6 col-lg-4 mb-4">
-				<div class="founder-img" data-founder-index="${index}">
+				<div class="team-member-img" data-member-index="${index}">
 					<img src="${member.image}" alt="${member.name}" loading="lazy">
 				</div>
 			</div>
 		`).join('');
-
-			// Add hover event listeners
-			const founderElements = foundersGrid.querySelectorAll('.founder-img');
-			founderElements.forEach((member, index) => {
-				member.addEventListener('mouseenter', () => showFounderDetails(index));
-			});
-		}
-
-		// Function to show founder details
-		function showFounderDetails(index) {
-			const founderDetails = qs('#founder-details');
-			const member = founders[index];
-			
-			if (!founderDetails || !member) return;
-
-			founderDetails.innerHTML = `
-				<h4>${member.name}</h4>
-				<div class="position">${member.position}</div>
-				<div class="bio">${member.bio}</div>
-				${member.linkedin !== '#' ? `<a href="${member.linkedin}" class="linkedin-link" target="_blank">LinkedIn Profile</a>` : ''}
-			`;
-		}
-
-		// Function to populate team members grid
-		function populateTeamMembersGrid() {
-			const teamMembersGrid = qs('#team-members-grid');
-			if (!teamMembersGrid) return;
-
-			teamMembersGrid.innerHTML = teamMembers.map((member, index) => `
-				<div class="col-md-4 col-lg-3 mb-3">
-					<div class="team-member-img" data-member-index="${index}">
-						<img src="${member.image}" alt="${member.name}" loading="lazy">
-					</div>
-				</div>
-			`).join('');
 
 			// Add hover event listeners
 			const teamMemberElements = teamMembersGrid.querySelectorAll('.team-member-img');
@@ -15942,14 +16300,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 			`;
 		}
 
-		// Initialize We Are Growthally section
-		function initializeWeAreGrowthally() {
-			populateFoundersGrid();
-			populateTeamMembersGrid();
-			// Show first founder and first team member by default
-			showFounderDetails(0);
-			showTeamMemberDetails(0);
-		}
+	// Initialize We Are Growthally section
+	function initializeWeAreGrowthally() {
+		populateFoundersGrid();
+		populateTeamMembersGrid();
+		// Show first team member by default
+		showTeamMemberDetails(0);
+	}
 
 		// Services section functionality - Hover only
 		function initializeServices() {
@@ -16304,5 +16661,5 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 		<i class="fab fa-whatsapp"></i>
 	</a>
 
-		</main>
-	</body>
+	</main>
+</body>

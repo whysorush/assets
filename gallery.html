@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Gallery - Company Culture | Growthally Advisors</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Explore Growthally Advisors' company culture, team events, and work environment through our photo gallery.">
+	<meta name="keywords" content="growthally culture, team photos, company events, work environment">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/logo.png">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles.css">
+	
+	<style>
+		/* Page-specific styles */
+		body {
+			background: #f8fafc;
+			margin: 0;
+			padding: 0;
+			font-family: 'Noto Sans', sans-serif;
+		}
+		
+		#wrapper_main {
+			overflow-x: hidden;
+			background: #f8fafc;
+			position: relative;
+			z-index: 1;
+		}
+		
+		.gallery-hero {
+			background: linear-gradient(135deg, #1e3a8a 0%, #3e78ad 100%);
+			padding: 120px 0 80px;
+			text-align: center;
+			color: white;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.gallery-hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/></pattern></defs><rect width='100' height='100' fill='url(%23grid)'/></svg>");
+			opacity: 0.3;
+		}
+		
+		.gallery-hero h1 {
+			font-size: 3rem;
+			font-weight: 700;
+			margin-bottom: 20px;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.gallery-hero p {
+			font-size: 1.2rem;
+			max-width: 700px;
+			margin: 0 auto;
+			opacity: 0.9;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.gallery-container {
+			max-width: 1200px;
+			margin: 60px auto 80px;
+			padding: 0 20px;
+		}
+		
+		.gallery-categories {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 15px;
+			margin-bottom: 40px;
+		}
+		
+		.category-btn {
+			padding: 12px 25px;
+			background: white;
+			border: 2px solid #3e78ad;
+			color: #3e78ad;
+			border-radius: 25px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		
+		.category-btn:hover,
+		.category-btn.active {
+			background: #3e78ad;
+			color: white;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(62, 120, 173, 0.3);
+		}
+		
+		.gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 25px;
+			margin-top: 40px;
+		}
+		
+		.gallery-item {
+			position: relative;
+			overflow: hidden;
+			border-radius: 12px;
+			cursor: pointer;
+			aspect-ratio: 1;
+			background: #e2e8f0;
+			transition: all 0.3s ease;
+		}
+		
+		.gallery-item:hover {
+			transform: scale(1.05);
+			box-shadow: 0 12px 30px rgba(62, 120, 173, 0.3);
+		}
+		
+		.gallery-item img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all 0.3s ease;
+		}
+		
+		.gallery-item:hover img {
+			transform: scale(1.1);
+		}
+		
+		.gallery-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(to top, rgba(30, 58, 138, 0.9), transparent);
+			padding: 20px;
+			transform: translateY(100%);
+			transition: transform 0.3s ease;
+		}
+		
+		.gallery-item:hover .gallery-overlay {
+			transform: translateY(0);
+		}
+		
+		.gallery-title {
+			color: white;
+			font-weight: 600;
+			font-size: 1rem;
+		}
+		
+		.gallery-category-tag {
+			color: #d4af37;
+			font-size: 0.85rem;
+			margin-top: 5px;
+		}
+		
+		/* Lightbox */
+		.lightbox {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.95);
+			z-index: 9999;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+		}
+		
+		.lightbox.active {
+			display: flex;
+		}
+		
+		.lightbox-content {
+			max-width: 90%;
+			max-height: 90%;
+			position: relative;
+			animation: zoomIn 0.3s ease;
+		}
+		
+		@keyframes zoomIn {
+			from {
+				transform: scale(0.8);
+				opacity: 0;
+			}
+			to {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+		
+		.lightbox-image {
+			max-width: 100%;
+			max-height: 85vh;
+			object-fit: contain;
+			border-radius: 8px;
+		}
+		
+		.lightbox-close {
+			position: absolute;
+			top: -40px;
+			right: 0;
+			background: #3e78ad;
+			color: white;
+			border: none;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			font-size: 24px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		
+		.lightbox-close:hover {
+			background: #d4af37;
+			transform: rotate(90deg);
+		}
+		
+		.lightbox-nav {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(62, 120, 173, 0.8);
+			color: white;
+			border: none;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			font-size: 24px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		
+		.lightbox-nav:hover {
+			background: #3e78ad;
+		}
+		
+		.lightbox-prev {
+			left: -70px;
+		}
+		
+		.lightbox-next {
+			right: -70px;
+		}
+		
+		.lightbox-caption {
+			color: white;
+			text-align: center;
+			margin-top: 20px;
+			font-size: 1.1rem;
+		}
+		
+		/* Responsive */
+		@media (max-width: 768px) {
+			.gallery-hero h1 {
+				font-size: 2rem;
+			}
+			
+			.gallery-grid {
+				grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+				gap: 15px;
+			}
+			
+			.lightbox-nav {
+				width: 40px;
+				height: 40px;
+				font-size: 18px;
+			}
+			
+			.lightbox-prev {
+				left: 10px;
+			}
+			
+			.lightbox-next {
+				right: 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper_main">
+		<!-- Header will be loaded by common.js -->
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="gallery-hero">
+				<div class="container">
+					<h1>Our Gallery</h1>
+					<p>Celebrating our team, culture, and journey together</p>
+				</div>
+			</section>
+			
+			<!-- Gallery Container -->
+			<div class="gallery-container">
+				<!-- Category Filters -->
+				<div class="gallery-categories">
+					<button class="category-btn active" onclick="filterGallery('all')">All Photos</button>
+					<button class="category-btn" onclick="filterGallery('team')">Our Team</button>
+					<button class="category-btn" onclick="filterGallery('culture')">Company Culture</button>
+					<button class="category-btn" onclick="filterGallery('events')">Events & Celebrations</button>
+				</div>
+				
+				<!-- Gallery Grid -->
+				<div class="gallery-grid" id="galleryGrid">
+					<!-- Gallery items will be dynamically loaded here -->
+				</div>
+			</div>
+		</main>
+		
+		<!-- Footer will be loaded by common.js -->
+	</div>
+	
+	<!-- Lightbox -->
+	<div class="lightbox" id="lightbox">
+		<div class="lightbox-content">
+			<button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+			<button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">
+				<i class="fas fa-chevron-left"></i>
+			</button>
+			<img class="lightbox-image" id="lightboxImage" src="" alt="">
+			<button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">
+				<i class="fas fa-chevron-right"></i>
+			</button>
+			<div class="lightbox-caption" id="lightboxCaption"></div>
+		</div>
+	</div>
+	
+	<!-- Common JS for navigation and footer -->
+	<script src="common.js"></script>
+	
+	<!-- Gallery Logic -->
+	<script>
+		// Gallery data using existing team images
+		const galleryData = [
+			{
+				id: 1,
+				image: 'assets/bhupi.jpg',
+				title: 'Bhupinder Narendra Garg',
+				category: 'team',
+				description: 'Founder and Director'
+			},
+			{
+				id: 2,
+				image: 'assets/shekher.jpg',
+				title: 'Shekhar Shrawankumar Bhuwania',
+				category: 'team',
+				description: 'Founder and Director'
+			},
+			{
+				id: 3,
+				image: 'assets/ravi.jpg',
+				title: 'Ravi Jaisalmeria',
+				category: 'team',
+				description: 'Founder and Director'
+			},
+			{
+				id: 4,
+				image: 'assets/saurab.jpg',
+				title: 'Saurabh',
+				category: 'team',
+				description: 'VP - Debt Syndication'
+			},
+			{
+				id: 5,
+				image: 'assets/mayuri.jpg',
+				title: 'Mayuri',
+				category: 'team',
+				description: 'Team Leader - Debt Syndication'
+			},
+			{
+				id: 6,
+				image: 'assets/brijen.jpg',
+				title: 'Brijen',
+				category: 'team',
+				description: 'Sr. Relationship Manager'
+			},
+			{
+				id: 7,
+				image: 'assets/aayush.jpg',
+				title: 'Ayush',
+				category: 'team',
+				description: 'Sr. Relationship Manager'
+			},
+			{
+				id: 8,
+				image: 'assets/varun.jpg',
+				title: 'Varun',
+				category: 'team',
+				description: 'VP - Investment Banking'
+			},
+			{
+				id: 9,
+				image: 'assets/yash.jpg',
+				title: 'Yash',
+				category: 'team',
+				description: 'Head - Equity'
+			},
+			{
+				id: 10,
+				image: 'assets/lakshmikant.jpg',
+				title: 'Laxmikant',
+				category: 'team',
+				description: 'Head - Equity'
+			},
+			{
+				id: 11,
+				image: 'assets/Aditya.jpg',
+				title: 'Aditya',
+				category: 'team',
+				description: 'Manager - Client Acquisition'
+			},
+			{
+				id: 12,
+				image: 'assets/jay.jpg',
+				title: 'Jay',
+				category: 'team',
+				description: 'Team Member'
+			},
+			{
+				id: 13,
+				image: 'assets/jigar.jpg',
+				title: 'Jigar',
+				category: 'team',
+				description: 'Team Member'
+			},
+			{
+				id: 14,
+				image: 'assets/nupur.jpg',
+				title: 'Nupur',
+				category: 'team',
+				description: 'Team Member'
+			},
+			{
+				id: 15,
+				image: 'assets/group2.jpeg',
+				title: 'Team Gathering',
+				category: 'culture',
+				description: 'Our amazing team together'
+			}
+		];
+		
+		let currentFilter = 'all';
+		let currentLightboxIndex = 0;
+		let filteredGallery = galleryData;
+		
+		// Render gallery
+		function renderGallery() {
+			const galleryGrid = document.getElementById('galleryGrid');
+			if (!galleryGrid) return;
+			
+			filteredGallery = currentFilter === 'all' 
+				? galleryData 
+				: galleryData.filter(item => item.category === currentFilter);
+			
+			galleryGrid.innerHTML = filteredGallery.map((item, index) => `
+				<div class="gallery-item" onclick="openLightbox(${index})">
+					<img src="${item.image}" alt="${item.title}" loading="lazy">
+					<div class="gallery-overlay">
+						<div class="gallery-title">${item.title}</div>
+						<div class="gallery-category-tag">${item.description}</div>
+					</div>
+				</div>
+			`).join('');
+		}
+		
+		// Filter gallery
+		function filterGallery(category) {
+			currentFilter = category;
+			
+			// Update active button
+			document.querySelectorAll('.category-btn').forEach(btn => {
+				btn.classList.remove('active');
+			});
+			event.target.classList.add('active');
+			
+			renderGallery();
+		}
+		
+		// Open lightbox
+		function openLightbox(index) {
+			currentLightboxIndex = index;
+			const item = filteredGallery[index];
+			
+			document.getElementById('lightboxImage').src = item.image;
+			document.getElementById('lightboxCaption').textContent = `${item.title} - ${item.description}`;
+			document.getElementById('lightbox').classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
+		
+		// Close lightbox
+		function closeLightbox() {
+			document.getElementById('lightbox').classList.remove('active');
+			document.body.style.overflow = 'auto';
+		}
+		
+		// Navigate lightbox
+		function navigateLightbox(direction) {
+			currentLightboxIndex += direction;
+			
+			if (currentLightboxIndex < 0) {
+				currentLightboxIndex = filteredGallery.length - 1;
+			} else if (currentLightboxIndex >= filteredGallery.length) {
+				currentLightboxIndex = 0;
+			}
+			
+			const item = filteredGallery[currentLightboxIndex];
+			document.getElementById('lightboxImage').src = item.image;
+			document.getElementById('lightboxCaption').textContent = `${item.title} - ${item.description}`;
+		}
+		
+		// Close lightbox on background click
+		document.getElementById('lightbox').addEventListener('click', function(e) {
+			if (e.target === this) {
+				closeLightbox();
+			}
+		});
+		
+		// Keyboard navigation
+		document.addEventListener('keydown', function(e) {
+			const lightbox = document.getElementById('lightbox');
+			if (lightbox.classList.contains('active')) {
+				if (e.key === 'Escape') {
+					closeLightbox();
+				} else if (e.key === 'ArrowLeft') {
+					navigateLightbox(-1);
+				} else if (e.key === 'ArrowRight') {
+					navigateLightbox(1);
+				}
+			}
+		});
+		
+		// Initialize
+		document.addEventListener('DOMContentLoaded', function() {
+			renderGallery();
+		});
+	</script>
+</body>
+</html>
+
