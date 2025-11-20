@@ -101,9 +101,24 @@ document.addEventListener('DOMContentLoaded', function() {
 </footer>
 
 <!-- WhatsApp Sticky Button -->
-<a href="https://wa.me/917506236027?text=Hi" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-whatsapp whatsapp-icon"></i>
-</a>`;
+<a href="https://wa.me/917506236027?text=Hi" 
+   class="whatsapp-sticky-btn" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp"
+   style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); transition: all 0.3s ease; text-decoration: none;">
+    <i class="fab fa-whatsapp" style="font-size: 32px; color: #ffffff;"></i>
+</a>
+<style>
+.whatsapp-sticky-btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6) !important;
+    background: #20BA5A !important;
+}
+.whatsapp-sticky-btn:active {
+    transform: scale(0.95);
+}
+</style>`;
     // Insert header at the beginning of wrapper_main
     const wrapperMain = document.getElementById('wrapper_main');
     if (wrapperMain) {
