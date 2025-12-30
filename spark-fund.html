@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>GrowthAlly Spark Fund - AIF Category I Angel Fund | Growthally</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="GrowthAlly Spark Fund is a SEBI-registered Category I Angel AIF focused on investing in high-potential early-stage startups with strategic guidance and ecosystem access.">
+	<meta name="keywords" content="angel fund, AIF category I, startup investment, early-stage funding, SEBI registered, growthally spark fund">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/logo.png">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles.css">
+	
+	<style>
+		body {
+			background: #f8fafc;
+			margin: 0;
+			padding: 0;
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		}
+		
+		#wrapper_main {
+			overflow-x: hidden;
+			background: #f8fafc;
+		}
+		
+		.company-hero {
+			background: linear-gradient(135deg, #0f1941 0%, #0f1941 100%);
+			padding: 140px 0 100px;
+			text-align: center;
+			color: white;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.company-hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/></pattern></defs><rect width='100' height='100' fill='url(%23grid)'/></svg>");
+			opacity: 0.3;
+		}
+		
+		.company-logo {
+			max-width: 350px;
+			margin-bottom: 30px;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.company-hero h1 {
+			font-size: 3.5rem;
+			font-weight: 700;
+			margin-bottom: 20px;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.sebi-badge {
+			display: inline-block;
+			background: rgba(212, 175, 55, 0.2);
+			color: #d4af37;
+			padding: 10px 25px;
+			border-radius: 50px;
+			font-weight: 600;
+			font-size: 0.95rem;
+			margin-bottom: 20px;
+			border: 2px solid rgba(212, 175, 55, 0.5);
+		}
+		
+		.company-tagline {
+			font-size: 1.5rem;
+			max-width: 800px;
+			margin: 0 auto;
+			opacity: 0.95;
+			position: relative;
+			z-index: 2;
+			font-weight: 500;
+		}
+		
+		.content-container {
+			max-width: 1200px;
+			margin: -60px auto 80px;
+			padding: 0 20px;
+			position: relative;
+			z-index: 10;
+		}
+		
+		.content-section {
+			background: white;
+			border-radius: 16px;
+			padding: 50px;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+			margin-bottom: 40px;
+		}
+		
+		.section-title {
+			font-size: 2.2rem;
+			font-weight: 700;
+			color: #0f1941;
+			margin-bottom: 25px;
+			display: flex;
+			align-items: center;
+			gap: 15px;
+		}
+		
+		.section-icon {
+			width: 50px;
+			height: 50px;
+			background: linear-gradient(135deg, #0f1941, #0f1941);
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-size: 24px;
+		}
+		
+		.section-content {
+			color: #374151;
+			font-size: 1.1rem;
+			line-height: 1.8;
+		}
+		
+		.serve-list, .highlights-grid, .impact-grid {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.serve-list li {
+			padding: 15px 0;
+			border-bottom: 1px solid #e2e8f0;
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			font-size: 1.1rem;
+			color: #374151;
+		}
+		
+		.serve-list li:last-child {
+			border-bottom: none;
+		}
+		
+		.serve-list i {
+			color: #0f1941;
+			font-size: 20px;
+		}
+		
+		.sectors-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 20px;
+			margin-top: 25px;
+		}
+		
+		.sector-tag {
+			background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+			padding: 20px;
+			border-radius: 10px;
+			text-align: center;
+			font-weight: 600;
+			color: #0f1941;
+			border: 2px solid transparent;
+			transition: all 0.3s ease;
+		}
+		
+		.sector-tag:hover {
+			border-color: #0f1941;
+			transform: translateY(-3px);
+			box-shadow: 0 6px 20px rgba(62, 120, 173, 0.15);
+		}
+		
+		.sector-tag i {
+			display: block;
+			font-size: 2rem;
+			color: #0f1941;
+			margin-bottom: 10px;
+		}
+		
+		.highlights-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 25px;
+			margin-top: 30px;
+		}
+		
+		.highlight-card {
+			background: linear-gradient(135deg, #fff8dc 0%, #f4e4c1 100%);
+			padding: 30px;
+			border-radius: 12px;
+			text-align: center;
+			transition: all 0.3s ease;
+			border: 2px solid transparent;
+		}
+		
+		.highlight-card:hover {
+			transform: translateY(-5px);
+			border-color: #d4af37;
+			box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+		}
+		
+		.highlight-icon {
+			font-size: 3rem;
+			color: #d4af37;
+			margin-bottom: 15px;
+		}
+		
+		.highlight-text {
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: #0f1941;
+			line-height: 1.4;
+		}
+		
+		.impact-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 25px;
+			margin-top: 30px;
+		}
+		
+		.impact-card {
+			background: white;
+			padding: 30px;
+			border-radius: 12px;
+			border-left: 4px solid #d4af37;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+			transition: all 0.3s ease;
+		}
+		
+		.impact-card:hover {
+			transform: translateX(5px);
+			box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+		}
+		
+		.impact-card i {
+			font-size: 2.5rem;
+			color: #d4af37;
+			margin-bottom: 15px;
+		}
+		
+		.impact-card h4 {
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: #0f1941;
+			margin-bottom: 10px;
+		}
+		
+		.impact-card p {
+			color: #6b7280;
+			margin: 0;
+		}
+		
+		.cta-section {
+			background: linear-gradient(135deg, #0f1941 0%, #0f1941 100%);
+			border-radius: 16px;
+			padding: 60px 50px;
+			text-align: center;
+			color: white;
+			box-shadow: 0 12px 40px rgba(30, 58, 138, 0.3);
+		}
+		
+		.cta-section h2 {
+			font-size: 2.5rem;
+			margin-bottom: 20px;
+			color: white;
+		}
+		
+		.cta-section p {
+			font-size: 1.2rem;
+			margin-bottom: 30px;
+			opacity: 0.95;
+		}
+		
+		.cta-buttons {
+			display: flex;
+			gap: 20px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		
+		.cta-button {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			background: #d4af37;
+			color: white;
+			padding: 18px 40px;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 1.1rem;
+			transition: all 0.3s ease;
+			box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+		}
+		
+		.cta-button:hover {
+			background: #f4e4c1;
+			color: #0f1941;
+			transform: translateY(-3px);
+			box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+		}
+		
+		.cta-button.secondary {
+			background: transparent;
+			border: 2px solid white;
+			color: white;
+		}
+		
+		.cta-button.secondary:hover {
+			background: white;
+			color: #0f1941;
+		}
+		
+		/* Responsive */
+		@media (max-width: 768px) {
+			.company-hero {
+				padding: 120px 0 80px;
+			}
+			
+			.company-hero h1 {
+				font-size: 2.2rem;
+			}
+			
+			.company-tagline {
+				font-size: 1.2rem;
+			}
+			
+			.content-section {
+				padding: 30px 20px;
+			}
+			
+			.section-title {
+				font-size: 1.8rem;
+			}
+			
+			.sectors-grid,
+			.highlights-grid,
+			.impact-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.cta-section {
+				padding: 40px 25px;
+			}
+			
+			.cta-section h2 {
+				font-size: 2rem;
+			}
+			
+			.cta-buttons {
+				flex-direction: column;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper_main">
+		<!-- Header will be loaded by common.js -->
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="company-hero">
+				<div class="container">
+					<img src="assets/Growthally Spark Fund.png" alt="GrowthAlly Spark Fund" class="company-logo">
+					<div class="sebi-badge"><i class="fas fa-certificate"></i> SEBI Registered Category I Angel AIF</div>
+					<h1>GrowthAlly Spark Fund</h1>
+					<p class="company-tagline">Backing Early-Stage Visionaries with Capital & Conviction</p>
+				</div>
+			</section>
+			
+			<!-- Content Container -->
+			<div class="content-container">
+				<!-- What We Do -->
+				<div class="content-section">
+					<h2 class="section-title">
+						<span class="section-icon"><i class="fas fa-lightbulb"></i></span>
+						What We Do
+					</h2>
+					<div class="section-content">
+						<p>GrowthAlly Spark Fund is a SEBI-registered Category I Angel AIF focused on investing in high-potential early-stage startups. Beyond capital, the fund provides strategic guidance, governance support, and ecosystem access to help founders build scalable and sustainable businesses.</p>
+					</div>
+				</div>
+				
+				<!-- Who We Serve -->
+				<div class="content-section">
+					<h2 class="section-title">
+						<span class="section-icon"><i class="fas fa-rocket"></i></span>
+						Who We Serve
+					</h2>
+					<ul class="serve-list">
+						<li><i class="fas fa-check-circle"></i> Early-stage startups (Seed to Pre-Series A)</li>
+						<li><i class="fas fa-check-circle"></i> Founders with scalable, tech-enabled business models</li>
+					</ul>
+					
+					<h3 style="color: #0f1941; margin-top: 30px; margin-bottom: 20px; font-size: 1.5rem;">Focus Sectors</h3>
+					<div class="sectors-grid">
+						<div class="sector-tag">
+							<i class="fas fa-microchip"></i>
+							Tech
+						</div>
+						<div class="sector-tag">
+							<i class="fas fa-coins"></i>
+							FinTech
+						</div>
+						<div class="sector-tag">
+							<i class="fas fa-heartbeat"></i>
+							HealthTech
+						</div>
+						<div class="sector-tag">
+							<i class="fas fa-cloud"></i>
+							SaaS
+						</div>
+						<div class="sector-tag">
+							<i class="fas fa-leaf"></i>
+							Climate
+						</div>
+						<div class="sector-tag">
+							<i class="fas fa-shopping-cart"></i>
+							Consumer
+						</div>
+					</div>
+				</div>
+				
+				<!-- Key Highlights -->
+				<div class="content-section">
+					<h2 class="section-title">
+						<span class="section-icon"><i class="fas fa-star"></i></span>
+						Key Highlights
+					</h2>
+					<div class="highlights-grid">
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-certificate"></i></div>
+							<div class="highlight-text">SEBI Registered Category I Angel AIF</div>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-briefcase"></i></div>
+							<div class="highlight-text">Strong sponsor background in investment banking</div>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-hands-helping"></i></div>
+							<div class="highlight-text">Hands-on post-investment involvement</div>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-shield-alt"></i></div>
+							<div class="highlight-text">Disciplined capital deployment and governance focus</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Impact -->
+				<div class="content-section">
+					<h2 class="section-title">
+						<span class="section-icon"><i class="fas fa-chart-line"></i></span>
+						Impact
+					</h2>
+					<div class="impact-grid">
+						<div class="impact-card">
+							<i class="fas fa-seedling"></i>
+							<h4>Startup Growth Enablement</h4>
+							<p>Provided strategic capital to fuel early-stage innovation</p>
+						</div>
+						<div class="impact-card">
+							<i class="fas fa-link"></i>
+							<h4>Follow-on Funding Access</h4>
+							<p>Facilitated connections to institutional investors for next rounds</p>
+						</div>
+						<div class="impact-card">
+							<i class="fas fa-chart-bar"></i>
+							<h4>Financial Discipline</h4>
+							<p>Strengthened governance and financial reporting systems</p>
+						</div>
+						<div class="impact-card">
+							<i class="fas fa-expand-arrows-alt"></i>
+							<h4>Scalability Support</h4>
+							<p>Helped founders build sustainable and scalable business models</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- CTA Section -->
+				<div class="cta-section">
+					<h2>Building the Next Generation of Market Leaders</h2>
+					<p>Pitch to the Fund or Partner with Us</p>
+					<div class="cta-buttons">
+						<a href="contact.html" class="cta-button">
+							<i class="fas fa-envelope"></i>
+							Submit Your Pitch
+						</a>
+						<a href="contact.html" class="cta-button secondary">
+							<i class="fas fa-handshake"></i>
+							Explore Partnership
+						</a>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+		<!-- Footer will be loaded by common.js -->
+	</div>
+	
+	<!-- Common JS for navigation and footer -->
+	<script src="common.js"></script>
+</body>
+</html>
+

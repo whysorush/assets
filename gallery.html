@@ -22,7 +22,9 @@
 			background: #f8fafc;
 			margin: 0;
 			padding: 0;
-			font-family: 'Noto Sans', sans-serif;
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
 		}
 		
 		#wrapper_main {
@@ -33,7 +35,7 @@
 		}
 		
 		.gallery-hero {
-			background: linear-gradient(135deg, #1e3a8a 0%, #3e78ad 100%);
+			background: linear-gradient(135deg, #0f1941 0%, #0f1941 100%);
 			padding: 120px 0 80px;
 			text-align: center;
 			color: white;
@@ -86,8 +88,8 @@
 		.category-btn {
 			padding: 12px 25px;
 			background: white;
-			border: 2px solid #3e78ad;
-			color: #3e78ad;
+			border: 2px solid #0f1941;
+			color: #0f1941;
 			border-radius: 25px;
 			font-weight: 600;
 			cursor: pointer;
@@ -96,7 +98,7 @@
 		
 		.category-btn:hover,
 		.category-btn.active {
-			background: #3e78ad;
+			background: #0f1941;
 			color: white;
 			transform: translateY(-2px);
 			box-shadow: 0 4px 12px rgba(62, 120, 173, 0.3);
@@ -210,7 +212,7 @@
 			position: absolute;
 			top: -40px;
 			right: 0;
-			background: #3e78ad;
+			background: #0f1941;
 			color: white;
 			border: none;
 			width: 40px;
@@ -242,7 +244,7 @@
 		}
 		
 		.lightbox-nav:hover {
-			background: #3e78ad;
+			background: #0f1941;
 		}
 		
 		.lightbox-prev {
@@ -304,8 +306,7 @@
 			<div class="gallery-container">
 				<!-- Category Filters -->
 				<div class="gallery-categories">
-					<button class="category-btn active" onclick="filterGallery('all')">All Photos</button>
-					<button class="category-btn" onclick="filterGallery('team')">Our Team</button>
+					<button class="category-btn active" onclick="filterGallery('team')">Our Team</button>
 					<button class="category-btn" onclick="filterGallery('culture')">Company Culture</button>
 					<button class="category-btn" onclick="filterGallery('events')">Events & Celebrations</button>
 				</div>
@@ -340,8 +341,9 @@
 	
 	<!-- Gallery Logic -->
 	<script>
-		// Gallery data using existing team images
+		// Gallery data - Team, Culture, and Events
 		const galleryData = [
+			// Team Members
 			{
 				id: 1,
 				image: 'assets/bhupi.jpg',
@@ -444,12 +446,184 @@
 				id: 15,
 				image: 'assets/group2.jpeg',
 				title: 'Team Gathering',
-				category: 'culture',
+				category: 'team',
 				description: 'Our amazing team together'
+			},
+			
+			// Company Culture
+			{
+				id: 16,
+				image: 'assets/culture/1.jpg',
+				title: 'Office Culture',
+				category: 'culture',
+				description: 'Our vibrant work environment'
+			},
+			{
+				id: 17,
+				image: 'assets/culture/1.png',
+				title: 'Team Collaboration',
+				category: 'culture',
+				description: 'Working together towards success'
+			},
+			{
+				id: 18,
+				image: 'assets/culture/2.jpg',
+				title: 'Daily Moments',
+				category: 'culture',
+				description: 'Capturing everyday excellence'
+			},
+			{
+				id: 19,
+				image: 'assets/culture/3.jpg',
+				title: 'Team Spirit',
+				category: 'culture',
+				description: 'Building strong connections'
+			},
+			{
+				id: 20,
+				image: 'assets/culture/4.jpg',
+				title: 'Workplace Joy',
+				category: 'culture',
+				description: 'Happy faces, productive days'
+			},
+			{
+				id: 21,
+				image: 'assets/culture/5.jpg',
+				title: 'Office Life',
+				category: 'culture',
+				description: 'Where passion meets profession'
+			},
+			{
+				id: 22,
+				image: 'assets/culture/5 (2).jpg',
+				title: 'Team Bonding',
+				category: 'culture',
+				description: 'Strengthening our bonds'
+			},
+			{
+				id: 23,
+				image: 'assets/culture/6.jpg',
+				title: 'Work Culture',
+				category: 'culture',
+				description: 'Excellence in action'
+			},
+			{
+				id: 24,
+				image: 'assets/culture/6 (2).jpg',
+				title: 'Team Energy',
+				category: 'culture',
+				description: 'Positive vibes all around'
+			},
+			{
+				id: 25,
+				image: 'assets/culture/14.jpg',
+				title: 'Office Moments',
+				category: 'culture',
+				description: 'Creating memories together'
+			},
+			
+			// Events & Celebrations
+			{
+				id: 26,
+				image: 'assets/events/3M4A0184.JPG',
+				title: 'Team Event',
+				category: 'events',
+				description: 'Celebrating milestones together'
+			},
+			{
+				id: 27,
+				image: 'assets/events/3M4A0195.JPG',
+				title: 'Corporate Gathering',
+				category: 'events',
+				description: 'Building stronger connections'
+			},
+			{
+				id: 28,
+				image: 'assets/events/3M4A0208.JPG',
+				title: 'Team Celebration',
+				category: 'events',
+				description: 'Moments of joy and success'
+			},
+			{
+				id: 29,
+				image: 'assets/events/3M4A0221.JPG',
+				title: 'Company Event',
+				category: 'events',
+				description: 'Creating unforgettable memories'
+			},
+			{
+				id: 30,
+				image: 'assets/events/3M4A0297.JPG',
+				title: 'Team Outing',
+				category: 'events',
+				description: 'Fun times with the team'
+			},
+			{
+				id: 31,
+				image: 'assets/events/3M4A0297 (1).JPG',
+				title: 'Group Activity',
+				category: 'events',
+				description: 'Bonding beyond the office'
+			},
+			{
+				id: 32,
+				image: 'assets/events/3M4A0313.JPG',
+				title: 'Annual Celebration',
+				category: 'events',
+				description: 'Celebrating our achievements'
+			},
+			{
+				id: 33,
+				image: 'assets/events/3M4A0313 (1).JPG',
+				title: 'Team Together',
+				category: 'events',
+				description: 'United in celebration'
+			},
+			{
+				id: 34,
+				image: 'assets/events/3M4A0313 (1) (1).JPG',
+				title: 'Special Moments',
+				category: 'events',
+				description: 'Capturing the joy'
+			},
+			{
+				id: 35,
+				image: 'assets/events/GOA 2025.png',
+				title: 'Goa Trip 2025',
+				category: 'events',
+				description: 'Team retreat and bonding'
+			},
+			{
+				id: 36,
+				image: 'assets/events/GOA 2025 (1).png',
+				title: 'Goa Celebration',
+				category: 'events',
+				description: 'Making memories in Goa'
+			},
+			{
+				id: 37,
+				image: 'assets/events/WhatsApp Image 2025-04-04 at 2.07.13 PM.jpeg',
+				title: 'Team Gathering',
+				category: 'events',
+				description: 'Together we achieve more'
+			},
+			{
+				id: 38,
+				image: 'assets/events/WhatsApp Image 2025-07-07 at 11.43.28.jpeg',
+				title: 'Company Event',
+				category: 'events',
+				description: 'Celebrating success together'
+			},
+			{
+				id: 39,
+				image: 'assets/events/WhatsApp Image 2025-07-07 at 11.43.30 (1).jpeg',
+				title: 'Team Milestone',
+				category: 'events',
+				description: 'Marking our achievements'
 			}
 		];
 		
-		let currentFilter = 'all';
+		let currentFilter = 'team';
 		let currentLightboxIndex = 0;
 		let filteredGallery = galleryData;
 		
@@ -458,9 +632,7 @@
 			const galleryGrid = document.getElementById('galleryGrid');
 			if (!galleryGrid) return;
 			
-			filteredGallery = currentFilter === 'all' 
-				? galleryData 
-				: galleryData.filter(item => item.category === currentFilter);
+			filteredGallery = galleryData.filter(item => item.category === currentFilter);
 			
 			galleryGrid.innerHTML = filteredGallery.map((item, index) => `
 				<div class="gallery-item" onclick="openLightbox(${index})">

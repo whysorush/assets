@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Why Growthally? | Growthally Advisors</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Discover why businesses choose Growthally Advisors for investment banking, M&A, debt syndication, and strategic financial advisory services.">
+	<meta name="keywords" content="why growthally, investment banking expertise, financial advisory, proven experience">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/logo.png">
+	
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles.css">
+	
+	<style>
+		/* Page-specific styles */
+		body {
+			background: #f8fafc;
+			margin: 0;
+			padding: 0;
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		
+		#wrapper_main {
+			overflow-x: hidden;
+			background: #f8fafc;
+		}
+		
+		/* Hero Section */
+		.why-hero {
+			background: linear-gradient(135deg, #0f1941 0%, #0f1941 100%);
+			padding: 140px 0 100px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.why-hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: 
+				radial-gradient(circle at 10% 20%, rgba(232, 219, 151, 0.15) 0%, transparent 40%),
+				radial-gradient(circle at 90% 80%, rgba(232, 219, 151, 0.15) 0%, transparent 40%),
+				radial-gradient(circle at 50% 50%, rgba(232, 219, 151, 0.05) 0%, transparent 60%);
+			pointer-events: none;
+		}
+		
+		.why-hero h1 {
+			color: #ffffff;
+			font-size: 4rem;
+			font-weight: 700;
+			margin: 0 0 25px;
+			position: relative;
+			z-index: 1;
+		}
+		
+		.why-hero .golden-text {
+			color: #ffd700;
+		}
+		
+		.why-hero p {
+			color: rgba(255, 255, 255, 0.9);
+			font-size: 1.4rem;
+			max-width: 900px;
+			margin: 0 auto;
+			position: relative;
+			z-index: 1;
+			line-height: 1.6;
+		}
+		
+		/* Stats Bar */
+		.stats-bar {
+			background: rgba(255, 255, 255, 0.1);
+			backdrop-filter: blur(10px);
+			border-radius: 20px;
+			padding: 30px;
+			margin-top: 50px;
+			display: flex;
+			justify-content: space-around;
+			max-width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+			z-index: 1;
+			border: 1px solid rgba(232, 219, 151, 0.3);
+		}
+		
+		.stat-item {
+			text-align: center;
+		}
+		
+		.stat-number {
+			color: #ffd700;
+			font-size: 2.5rem;
+			font-weight: 700;
+			display: block;
+			margin-bottom: 5px;
+		}
+		
+		.stat-label {
+			color: rgba(255, 255, 255, 0.9);
+			font-size: 0.95rem;
+			font-weight: 500;
+		}
+		
+		/* Reasons Section */
+		.reasons-section {
+			padding: 100px 0;
+			background: #ffffff;
+		}
+		
+		.section-intro {
+			text-align: center;
+			max-width: 800px;
+			margin: 0 auto 80px;
+			padding: 0 20px;
+		}
+		
+		.section-intro h2 {
+			color: #0f1941;
+			font-size: 3rem;
+			font-weight: 700;
+			margin: 0 0 20px;
+		}
+		
+		.section-intro .golden-text {
+			color: #ffd700;
+		}
+		
+		.section-intro p {
+			color: #6b7280;
+			font-size: 1.2rem;
+			line-height: 1.8;
+			margin: 0;
+		}
+		
+		/* Reasons Grid */
+		.reasons-grid {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			gap: 40px;
+		}
+		
+		/* Reason Card */
+		.reason-card {
+			background: #ffffff;
+			border-radius: 25px;
+			padding: 45px 40px;
+			box-shadow: 0 10px 40px rgba(15, 25, 65, 0.08);
+			border: 2px solid #e6f3ff;
+			position: relative;
+			transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+			overflow: hidden;
+		}
+		
+		.reason-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 5px;
+			background: linear-gradient(90deg, #ffd700, #ffd700);
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 0.5s ease;
+		}
+		
+		.reason-card:hover::before {
+			transform: scaleX(1);
+		}
+		
+		.reason-card:hover {
+			transform: translateY(-15px);
+			box-shadow: 0 25px 60px rgba(15, 25, 65, 0.15);
+			border-color: #ffd700;
+		}
+		
+		/* Card Number Badge */
+		.card-number {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			width: 50px;
+			height: 50px;
+			background: linear-gradient(135deg, #ffd700, #ffd700);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.3rem;
+			font-weight: 700;
+			color: #0f1941;
+			box-shadow: 0 5px 15px rgba(232, 219, 151, 0.3);
+		}
+		
+		/* Icon Container */
+		.reason-icon {
+			width: 90px;
+			height: 90px;
+			background: linear-gradient(135deg, #0f1941, #0f1941);
+			border-radius: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 30px;
+			position: relative;
+			transition: all 0.5s ease;
+		}
+		
+		.reason-card:hover .reason-icon {
+			transform: rotateY(360deg);
+		}
+		
+		.reason-icon i {
+			font-size: 2.8rem;
+			color: #ffd700;
+		}
+		
+		/* Card Content */
+		.reason-card h3 {
+			color: #0f1941;
+			font-size: 1.8rem;
+			font-weight: 700;
+			margin: 0 0 20px;
+			line-height: 1.3;
+			padding-right: 60px;
+		}
+		
+		.reason-card p {
+			color: #4a5568;
+			font-size: 1.05rem;
+			line-height: 1.8;
+			margin: 0;
+		}
+		
+		/* Highlight Keywords */
+		.reason-card strong {
+			color: #0f1941;
+			font-weight: 600;
+		}
+		
+		/* CTA Section */
+		.cta-section {
+			background: linear-gradient(135deg, #0f1941 0%, #0f1941 100%);
+			padding: 80px 0;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.cta-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: radial-gradient(circle at 50% 50%, rgba(232, 219, 151, 0.1) 0%, transparent 70%);
+			pointer-events: none;
+		}
+		
+		.cta-content {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 0 20px;
+			position: relative;
+			z-index: 1;
+		}
+		
+		.cta-content h2 {
+			color: #ffffff;
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin: 0 0 20px;
+		}
+		
+		.cta-content p {
+			color: rgba(255, 255, 255, 0.9);
+			font-size: 1.2rem;
+			margin: 0 0 40px;
+			line-height: 1.6;
+		}
+		
+		.cta-buttons {
+			display: flex;
+			gap: 20px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		
+		.cta-btn {
+			padding: 18px 45px;
+			border-radius: 50px;
+			font-size: 1.1rem;
+			font-weight: 600;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+		}
+		
+		.cta-btn-primary {
+			background: linear-gradient(135deg, #ffd700, #ffd700);
+			color: #0f1941;
+			box-shadow: 0 10px 30px rgba(232, 219, 151, 0.3);
+		}
+		
+		.cta-btn-primary:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 15px 40px rgba(232, 219, 151, 0.5);
+		}
+		
+		.cta-btn-secondary {
+			background: transparent;
+			color: #ffffff;
+			border: 2px solid #ffffff;
+		}
+		
+		.cta-btn-secondary:hover {
+			background: #ffffff;
+			color: #0f1941;
+			transform: translateY(-3px);
+		}
+		
+		/* Responsive Design */
+		@media (max-width: 992px) {
+			.reasons-grid {
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 30px;
+			}
+			
+			.why-hero h1 {
+				font-size: 3rem;
+			}
+			
+			.section-intro h2 {
+				font-size: 2.5rem;
+			}
+		}
+		
+		@media (max-width: 768px) {
+			.why-hero {
+				padding: 120px 0 80px;
+			}
+			
+			.why-hero h1 {
+				font-size: 2.5rem;
+			}
+			
+			.why-hero p {
+				font-size: 1.2rem;
+			}
+			
+			.stats-bar {
+				flex-direction: column;
+				gap: 25px;
+				padding: 25px;
+			}
+			
+			.stat-number {
+				font-size: 2rem;
+			}
+			
+			.reasons-grid {
+				grid-template-columns: 1fr;
+				gap: 25px;
+			}
+			
+			.reason-card {
+				padding: 35px 30px;
+			}
+			
+			.reason-card h3 {
+				font-size: 1.6rem;
+				padding-right: 55px;
+			}
+			
+			.section-intro h2 {
+				font-size: 2rem;
+			}
+			
+			.cta-content h2 {
+				font-size: 2rem;
+			}
+			
+			.cta-buttons {
+				flex-direction: column;
+				align-items: stretch;
+			}
+			
+			.cta-btn {
+				justify-content: center;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper_main">
+		<!-- Header will be loaded by common.js -->
+		
+		<main id="wrapper_scroll">
+			<!-- Hero Section -->
+			<section class="why-hero">
+				<div class="container">
+					<h1>Why <span class="golden-text">Growthally</span>?</h1>
+					<p>Your trusted partner for intelligent capital, strategic insight, and execution excellence across the entire growth lifecycle</p>
+					
+					<!-- Stats Bar -->
+					<div class="stats-bar">
+						<div class="stat-item">
+							<span class="stat-number">15+</span>
+							<span class="stat-label">Years Experience</span>
+						</div>
+						<div class="stat-item">
+							<span class="stat-number">₹20,000+</span>
+							<span class="stat-label">Crores Raised</span>
+						</div>
+						<div class="stat-item">
+							<span class="stat-number">3,000+</span>
+							<span class="stat-label">Clients Served</span>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Reasons Section -->
+			<section class="reasons-section">
+				<div class="section-intro">
+					<h2>What Sets Us <span class="golden-text">Apart</span></h2>
+					<p>We combine deep expertise, institutional networks, and a partnership mindset to deliver exceptional outcomes for our clients</p>
+				</div>
+				
+				<div class="reasons-grid">
+					<!-- Reason 1: Proven Experience -->
+					<div class="reason-card">
+						<div class="card-number">01</div>
+						<div class="reason-icon">
+							<i class="fas fa-award"></i>
+						</div>
+						<h3>Proven Experience</h3>
+						<p><strong>15+ years</strong> of consistent execution across debt, equity, M&A, and structured finance — with a track record spanning early-stage to complex, large-ticket mandates.</p>
+					</div>
+					
+					<!-- Reason 2: End-to-End Advisory Platform -->
+					<div class="reason-card">
+						<div class="card-number">02</div>
+						<div class="reason-icon">
+							<i class="fas fa-layer-group"></i>
+						</div>
+						<h3>End-to-End Advisory Platform</h3>
+						<p>A <strong>fully integrated</strong> investment banking and financial advisory firm — from capital strategy and structuring to transaction execution and closure.</p>
+					</div>
+					
+					<!-- Reason 3: Execution in Complexity -->
+					<div class="reason-card">
+						<div class="card-number">03</div>
+						<div class="reason-icon">
+							<i class="fas fa-cogs"></i>
+						</div>
+						<h3>Execution in Complexity</h3>
+						<p>Recognised for managing <strong>complex transactions</strong> with precision, speed, and compliance discipline — especially in special situations and structured financing.</p>
+					</div>
+					
+					<!-- Reason 4: Institutional Network -->
+					<div class="reason-card">
+						<div class="card-number">04</div>
+						<div class="reason-icon">
+							<i class="fas fa-network-wired"></i>
+						</div>
+						<h3>Institutional Network</h3>
+						<p>Deep relationships with <strong>banks, NBFCs, private equity funds, family offices, and global investors</strong> — enabling superior access to capital.</p>
+					</div>
+					
+					<!-- Reason 5: Lifecycle Partnership -->
+					<div class="reason-card">
+						<div class="card-number">05</div>
+						<div class="reason-icon">
+							<i class="fas fa-handshake"></i>
+						</div>
+						<h3>Lifecycle Partnership</h3>
+						<p>We engage as <strong>long-term partners</strong>, supporting clients through growth, transformation, and restructuring — not just single transactions.</p>
+					</div>
+					
+					<!-- Reason 6: A Connected Platform -->
+					<div class="reason-card">
+						<div class="card-number">06</div>
+						<div class="reason-icon">
+							<i class="fas fa-project-diagram"></i>
+						</div>
+						<h3>A Connected Platform</h3>
+						<p>Growthally operates within a broader ecosystem that includes <strong>GrowthAlly Spark Fund (AIF – Cat I)</strong> and <strong>GrowLease</strong>, enabling us to offer flexible capital solutions across equity, debt, and asset-based financing. This integrated platform strengthens our ability to support businesses at different stages of growth.</p>
+					</div>
+				</div>
+			</section>
+			
+			<!-- CTA Section -->
+			<section class="cta-section">
+				<div class="cta-content">
+					<h2>Ready to Power Your Growth?</h2>
+					<p>Let's discuss how we can help you navigate capital and achieve your strategic objectives</p>
+					<div class="cta-buttons">
+						<a href="contact.html" class="cta-btn cta-btn-primary">
+							<span>Schedule a Consultation</span>
+							<i class="fas fa-arrow-right"></i>
+						</a>
+						<a href="index.html#services" class="cta-btn cta-btn-secondary">
+							<span>Explore Our Services</span>
+							<i class="fas fa-compass"></i>
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		
+		<!-- Footer will be loaded by common.js -->
+	</div>
+	
+	<!-- Scripts -->
+	<script src="common.js"></script>
+	<!-- <script>
+		// Initialize common elements
+		document.addEventListener('DOMContentLoaded', function() {
+			initCommonElements();
+		});
+	</script> -->
+</body>
+</html>
+

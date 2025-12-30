@@ -1,8 +1,9 @@
 // Common navigation and footer for all pages
-document.addEventListener('DOMContentLoaded', function() {
+// Wait for full DOM ready and a small delay for any preloaders
+function initCommonElements() {
     // Add navigation
     const header = `
-<header id="header" class="normal initial-load">
+<header id="header" class="normal" style="background: #ffffff !important; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important; border-bottom: 1px solid #e2e8f0 !important;">
     <div class="container nav-wrapper">
         <!-- LOGO -->
         <div class="logo_main">
@@ -22,12 +23,33 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- MAIN MENU -->
         <nav id="menu_main" role="navigation" aria-label="Main navigation">
             <ul class="nav-links" role="menubar">
-                <li role="none"><a href="index.html#ab" role="menuitem">About Us</a></li>
-                <li role="none"><a href="index.html#ser" role="menuitem">Services</a></li>
-                <li role="none"><a href="index.html#team" role="menuitem">Team</a></li>
-                <li role="none"><a href="blogs.html" role="menuitem">Blogs</a></li>
-                <li role="none"><a href="media.html" role="menuitem">Media</a></li>
-                <li role="none"><a href="gallery.html" role="menuitem">Gallery</a></li>
+                <li role="none"><a href="index.html#home" role="menuitem">Home</a></li>
+                <li role="none" class="nav-dropdown">
+                    <a href="#" role="menuitem" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        About Us <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none"><a href="index.html#about" role="menuitem">Our Story</a></li>
+                        <li role="none"><a href="philosophy.html" role="menuitem">Our Philosophy & Vision</a></li>
+                        <li role="none"><a href="why-growthally.html" role="menuitem">Why Growthally?</a></li>
+                        <li role="none"><a href="gallery.html" role="menuitem">Leadership Team</a></li>
+                        <li role="none"><a href="growthally-advisors.html" role="menuitem">GrowthAlly Advisors</a></li>
+                        <li role="none"><a href="spark-fund.html" role="menuitem">GrowthAlly Spark Fund (AIF)</a></li>
+                        <li role="none"><a href="growlease.html" role="menuitem">GrowLease (Leasing Solutions)</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a href="index.html#services" role="menuitem">Services</a></li>
+                <li role="none" class="nav-dropdown">
+                    <a href="#" role="menuitem" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        Insights <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none"><a href="blogs.html" role="menuitem">Blogs</a></li>
+                        <li role="none"><a href="media.html" role="menuitem">Events & Media Coverage</a></li>
+                        <li role="none"><a href="index.html#brochure" role="menuitem">Downloads</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a href="index.html#careers" role="menuitem">Careers</a></li>
                 <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
             </ul>
         </nav>
@@ -44,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-brand">
                 <img src="./assets/logo_bg.png" alt="Growthally Advisors" loading="lazy">
                 <p class="footer-tagline">A Friend for Growth</p>
-                <a href="index.html#con" class="footer-cta">
+                <a href="contact.html" class="footer-cta">
                     <span>Schedule a Call</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -69,18 +91,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h5>Quick Links</h5>
                     <ul>
                         <li><a href="index.html#home">Home</a></li>
-                        <li><a href="index.html#ab">About</a></li>
-                        <li><a href="index.html#ser">Services</a></li>
-                        <li><a href="index.html#con">Contact</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h5>Solutions</h5>
                     <ul>
-                        <li><a href="index.html#ser">Debt Syndication</a></li>
-                        <li><a href="index.html#ser">Equity Advisory</a></li>
-                        <li><a href="index.html#ser">M&A Advisory</a></li>
-                        <li><a href="index.html#ser">Financial Consulting</a></li>
+                        <li><a href="index.html#services">Debt Syndication</a></li>
+                        <li><a href="index.html#services">Equity Advisory</a></li>
+                        <li><a href="index.html#services">M&A Advisory</a></li>
+                        <li><a href="index.html#services">Financial Consulting</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -123,57 +145,236 @@ document.addEventListener('DOMContentLoaded', function() {
     const wrapperMain = document.getElementById('wrapper_main');
     if (wrapperMain) {
         wrapperMain.insertAdjacentHTML('afterbegin', header);
+    } else {
+        console.warn('wrapper_main not found - header not inserted');
+        return; // Exit if wrapper_main doesn't exist
     }
 
-    // Insert footer before the end of wrapper_main
-    if (wrapperMain) {
+    // Insert footer after main element (inside wrapper_main but after main closes)
+    const mainElement = document.querySelector('main, #wrapper_scroll');
+    if (mainElement) {
+        mainElement.insertAdjacentHTML('afterend', footer);
+        console.log('Footer inserted after main element');
+    } else if (wrapperMain) {
+        // Fallback: insert at end of wrapper_main if main not found
         wrapperMain.insertAdjacentHTML('beforeend', footer);
+        console.log('Footer inserted at end of wrapper_main (fallback)');
     }
 
+    // Small delay to ensure DOM is ready for event listeners
+    setTimeout(() => {
+        initializeNavigation();
+    }, 50);
+}
+
+// Separate function for navigation initialization
+function initializeNavigation() {
+    console.log('initializeNavigation() called');
+    
     // Mobile menu toggle functionality
     const menuToggle = document.querySelector('.nav-toggle');
     const mainMenu = document.getElementById('menu_main');
     
+    console.log('menuToggle:', menuToggle);
+    console.log('mainMenu:', mainMenu);
+    
     if (menuToggle && mainMenu) {
-        const toggleMenu = () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
-            menuToggle.classList.toggle('active');
-            mainMenu.classList.toggle('active');
-        };
-
-        menuToggle.addEventListener('click', toggleMenu);
-
-        mainMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+        // Ensure menu starts closed
+        mainMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        
+        const toggleMenu = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Toggle menu clicked!');
+            
+            const isActive = mainMenu.classList.contains('active');
+            console.log('Current isActive:', isActive);
+            
+            if (isActive) {
+                mainMenu.classList.remove('active');
                 menuToggle.classList.remove('active');
                 menuToggle.setAttribute('aria-expanded', 'false');
-                mainMenu.classList.remove('active');
-            });
-        });
-    }
-
-    // Header scroll behavior to match index.html experience
-    const headerElement = document.getElementById('header');
-    if (headerElement) {
-        headerElement.classList.add('initial-load');
-
-        const updateHeaderState = () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const headerHeight = headerElement.offsetHeight || 60;
-
-            if (scrollTop > headerHeight) {
-                headerElement.classList.remove('initial-load');
-                headerElement.classList.add('scrolled');
+                document.body.style.overflow = '';
             } else {
-                headerElement.classList.remove('scrolled');
-                if (scrollTop === 0) {
-                    headerElement.classList.add('initial-load');
-                }
+                mainMenu.classList.add('active');
+                menuToggle.classList.add('active');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
             }
+            
+            console.log('After toggle - menuToggle classes:', menuToggle.className);
+            console.log('After toggle - mainMenu classes:', mainMenu.className);
         };
 
-        updateHeaderState();
-        window.addEventListener('scroll', updateHeaderState);
+        // Remove any existing listeners first
+        menuToggle.replaceWith(menuToggle.cloneNode(true));
+        const newMenuToggle = document.querySelector('.nav-toggle');
+        newMenuToggle.addEventListener('click', toggleMenu);
+        newMenuToggle.addEventListener('touchend', toggleMenu);
+        
+        console.log('Click listener added to menu toggle');
+
+        // Close menu when clicking on links
+        mainMenu.querySelectorAll('a:not(.dropdown-trigger)').forEach(link => {
+            link.addEventListener('click', () => {
+                mainMenu.classList.remove('active');
+                newMenuToggle.classList.remove('active');
+                newMenuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mainMenu.contains(e.target) && !newMenuToggle.contains(e.target)) {
+                if (mainMenu.classList.contains('active')) {
+                    mainMenu.classList.remove('active');
+                    newMenuToggle.classList.remove('active');
+                    newMenuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    } else {
+        console.error('Menu toggle or main menu not found!');
+        console.error('menuToggle element:', menuToggle);
+        console.error('mainMenu element:', mainMenu);
+    }
+
+    // Dropdown functionality - Hover for desktop, Click for all
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    
+    console.log('Found', dropdowns.length, 'dropdowns');
+    
+    if (dropdowns.length === 0) {
+        console.warn('No dropdowns found');
+        return;
+    }
+    
+    // Check if device is mobile
+    const isMobile = () => window.innerWidth <= 991;
+    
+    // Ensure all dropdowns start closed
+    dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+        const trigger = dropdown.querySelector('.dropdown-trigger');
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+    });
+    
+    // Handle dropdown interactions
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.dropdown-trigger');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        
+        if (trigger && dropdownMenu) {
+            console.log('Setting up dropdown:', dropdown);
+            console.log('Dropdown menu element:', dropdownMenu);
+            
+            // Hover functionality for desktop only
+            dropdown.addEventListener('mouseenter', () => {
+                if (!isMobile()) {
+                    dropdown.classList.add('active');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    console.log('Desktop hover - dropdown opened');
+                }
+            });
+            
+            dropdown.addEventListener('mouseleave', () => {
+                if (!isMobile()) {
+                    dropdown.classList.remove('active');
+                    trigger.setAttribute('aria-expanded', 'false');
+                    console.log('Desktop hover - dropdown closed');
+                }
+            });
+            
+            // Click functionality - works for both mobile and desktop
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('=== Dropdown trigger clicked! ===');
+                console.log('Window width:', window.innerWidth);
+                console.log('isMobile:', isMobile());
+                console.log('Dropdown element:', dropdown);
+                console.log('Current classes:', dropdown.className);
+                
+                const isOpen = dropdown.classList.contains('active');
+                console.log('Is currently open:', isOpen);
+                
+                // Close all other dropdowns
+                dropdowns.forEach(d => {
+                    if (d !== dropdown) {
+                        d.classList.remove('active');
+                        const t = d.querySelector('.dropdown-trigger');
+                        if (t) t.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Toggle current dropdown
+                if (!isOpen) {
+                    dropdown.classList.add('active');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    console.log('✓ Dropdown OPENED');
+                    console.log('New classes:', dropdown.className);
+                    console.log('Dropdown menu display:', window.getComputedStyle(dropdownMenu).display);
+                    console.log('Dropdown menu maxHeight:', window.getComputedStyle(dropdownMenu).maxHeight);
+                    console.log('Dropdown menu visibility:', window.getComputedStyle(dropdownMenu).visibility);
+                    console.log('Dropdown menu opacity:', window.getComputedStyle(dropdownMenu).opacity);
+                } else {
+                    dropdown.classList.remove('active');
+                    trigger.setAttribute('aria-expanded', 'false');
+                    console.log('✓ Dropdown CLOSED');
+                    console.log('New classes:', dropdown.className);
+                }
+            });
+        }
+    });
+
+    // Close dropdowns when clicking outside (mobile only)
+    document.addEventListener('click', (e) => {
+        if (isMobile() && !e.target.closest('.nav-dropdown')) {
+            console.log('Click outside dropdowns - closing all');
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+                const trigger = dropdown.querySelector('.dropdown-trigger');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+    
+    console.log('Navigation initialized successfully');
+}
+
+// Initialize on DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOMContentLoaded - Initializing common elements');
+        initCommonElements();
+    });
+} else {
+    // DOM is already loaded
+    console.log('DOM already loaded - Initializing common elements');
+    initCommonElements();
+}
+
+// Also ensure it runs after window load (for index.html with preloader)
+window.addEventListener('load', function() {
+    console.log('Window loaded - Checking if header exists');
+    // Check if elements were already inserted
+    if (!document.getElementById('header')) {
+        console.log('Header not found - Initializing common elements');
+        initCommonElements();
+    } else {
+        console.log('Header already exists');
+        // Ensure navigation is initialized even if header exists
+        const dropdowns = document.querySelectorAll('.nav-dropdown');
+        if (dropdowns.length > 0) {
+            console.log('Re-initializing navigation for', dropdowns.length, 'dropdowns');
+            initializeNavigation();
+        }
     }
 });

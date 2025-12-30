@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>GrowLease - Smart Leasing Solutions | Growthally</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="GrowLease provides innovative operating lease and asset financing solutions that help businesses preserve capital, improve cash flows, and enhance operational flexibility.">
+	<meta name="keywords" content="equipment leasing, asset financing, operating lease, business leasing, growlease, capital efficiency">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/logo.png">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles.css">
+	
+	<style>
+		body {
+			background: #f8fafc;
+			margin: 0;
+			padding: 0;
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		}
+		
+		#wrapper_main {
+			overflow-x: hidden;
+			background: #f8fafc;
+		}
+		
+		.company-hero {
+			background: linear-gradient(135deg, #0f1941 0%, #0f1941 100%);
+			padding: 140px 0 100px;
+			text-align: center;
+			color: white;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.company-hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/></pattern></defs><rect width='100' height='100' fill='url(%23grid)'/></svg>");
+			opacity: 0.3;
+		}
+		
+		.company-logo {
+			max-width: 300px;
+			margin-bottom: 30px;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.company-hero h1 {
+			font-size: 3.5rem;
+			font-weight: 700;
+			margin-bottom: 20px;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.company-tagline {
+			font-size: 1.5rem;
+			max-width: 800px;
+			margin: 0 auto;
+			opacity: 0.95;
+			position: relative;
+			z-index: 2;
+			font-weight: 500;
+		}
+		
+		.content-container {
+			max-width: 1200px;
+			margin: -60px auto 80px;
+			padding: 0 20px;
+			position: relative;
+			z-index: 10;
+		}
+		
+		.content-section {
+			background: white;
+			border-radius: 16px;
+			padding: 50px;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+			margin-bottom: 40px;
+		}
+		
+		.section-title {
+			font-size: 2.2rem;
+			font-weight: 700;
+			color: #0f1941;
+			margin-bottom: 25px;
+			display: flex;
+			align-items: center;
+			gap: 15px;
+		}
+		
+		.section-icon {
+			width: 50px;
+			height: 50px;
+			background: linear-gradient(135deg, #0f1941, #0f1941);
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-size: 24px;
+		}
+		
+		.section-content {
+			color: #374151;
+			font-size: 1.1rem;
+			line-height: 1.8;
+		}
+		
+		.serve-list, .highlights-grid, .impact-grid {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.serve-list li {
+			padding: 15px 0;
+			border-bottom: 1px solid #e2e8f0;
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			font-size: 1.1rem;
+			color: #374151;
+		}
+		
+		.serve-list li:last-child {
+			border-bottom: none;
+		}
+		
+		.serve-list i {
+			color: #0f1941;
+			font-size: 20px;
+		}
+		
+		.highlights-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 25px;
+			margin-top: 30px;
+		}
+		
+		.highlight-card {
+			background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+			padding: 30px;
+			border-radius: 12px;
+			text-align: center;
+			transition: all 0.3s ease;
+			border: 2px solid transparent;
+		}
+		
+		.highlight-card:hover {
+			transform: translateY(-5px);
+			border-color: #0f1941;
+			box-shadow: 0 8px 25px rgba(62, 120, 173, 0.2);
+		}
+		
+		.highlight-icon {
+			font-size: 3rem;
+			color: #0f1941;
+			margin-bottom: 15px;
+		}
+		
+		.highlight-text {
+			font-size: 1.3rem;
+			font-weight: 600;
+			color: #0f1941;
+			line-height: 1.4;
+		}
+		
+		.impact-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 25px;
+			margin-top: 30px;
+		}
+		
+		.impact-card {
+			background: white;
+			padding: 30px;
+			border-radius: 12px;
+			border-left: 4px solid #d4af37;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+			transition: all 0.3s ease;
+		}
+		
+		.impact-card:hover {
+			transform: translateX(5px);
+			box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+		}
+		
+		.impact-card i {
+			font-size: 2.5rem;
+			color: #d4af37;
+			margin-bottom: 15px;
+		}
+		
+		.impact-card h4 {
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: #0f1941;
+			margin-bottom: 10px;
+		}
+		
+		.impact-card p {
+			color: #6b7280;
+			margin: 0;
+		}
+		
+		.cta-section {
+			background: linear-gradient(135deg, #0f1941 0%, #0f1941 100%);
+			border-radius: 16px;
+			padding: 60px 50px;
+			text-align: center;
+			color: white;
+			box-shadow: 0 12px 40px rgba(30, 58, 138, 0.3);
+		}
+		
+		.cta-section h2 {
+			font-size: 2.5rem;
+			margin-bottom: 20px;
+			color: white;
+		}
+		
+		.cta-section p {
+			font-size: 1.2rem;
+			margin-bottom: 30px;
+			opacity: 0.95;
+		}
+		
+		.cta-button {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			background: #d4af37;
+			color: white;
+			padding: 18px 40px;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 1.2rem;
+			transition: all 0.3s ease;
+			box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+		}
+		
+		.cta-button:hover {
+			background: #f4e4c1;
+			color: #0f1941;
+			transform: translateY(-3px);
+			box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+		}
+		
+		/* Responsive */
+		@media (max-width: 768px) {
+			.company-hero {
+				padding: 120px 0 80px;
+			}
+			
+			.company-hero h1 {
+				font-size: 2.2rem;
+			}
+			
+			.company-tagline {
+				font-size: 1.2rem;
+			}
+			
+			.content-section {
+				padding: 30px 20px;
+			}
+			
+			.section-title {
+				font-size: 1.8rem;
+			}
+			
+			.highlights-grid,
+			.impact-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.cta-section {
+				padding: 40px 25px;
+			}
+			
+			.cta-section h2 {
+				font-size: 2rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper_main">
+		<!-- Header will be loaded by common.js -->
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="company-hero">
+				<div class="container">
+					<img src="assets/grow_lease.png" alt="GrowLease" class="company-logo">
+					<h1>GrowLease</h1>
+					<p class="company-tagline">Smart Leasing Solutions to Unlock Capital Efficiency</p>
+				</div>
+			</section>
+			
+			<!-- Content Container -->
+			<div class="content-container">
+				<!-- What We Do -->
+				<div class="content-section">
+					<h2 class="section-title">
+						<span class="section-icon"><i class="fas fa-file-contract"></i></span>
+						What We Do
+					</h2>
+					<div class="section-content">
+						<p>GrowLease provides innovative operating lease and asset financing solutions that help businesses preserve capital, improve cash flows, and enhance operational flexibility. Our structured leasing offerings allow access to critical assets without heavy upfront investments.</p>
+					</div>
+				</div>
+				
+				<!-- Who We Serve -->
+				<div class="content-section">
+					<h2 class="section-title">
+						<span class="section-icon"><i class="fas fa-industry"></i></span>
+						Who We Serve
+					</h2>
+					<ul class="serve-list">
+						<li><i class="fas fa-check-circle"></i> Corporates and MSMEs</li>
+						<li><i class="fas fa-check-circle"></i> Educational institutions</li>
+						<li><i class="fas fa-check-circle"></i> Manufacturing and infrastructure companies</li>
+						<li><i class="fas fa-check-circle"></i> Service-oriented businesses</li>
+					</ul>
+				</div>
+				
+				<!-- Key Highlights -->
+				<div class="content-section">
+					<h2 class="section-title">
+						<span class="section-icon"><i class="fas fa-key"></i></span>
+						Key Highlights
+					</h2>
+					<div class="highlights-grid">
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-sliders-h"></i></div>
+							<div class="highlight-text">Flexible leasing structures</div>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-bolt"></i></div>
+							<div class="highlight-text">Faster turnaround time</div>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-wallet"></i></div>
+							<div class="highlight-text">Lower upfront capital requirement</div>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-receipt"></i></div>
+							<div class="highlight-text">Tax-efficient lease rentals</div>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon"><i class="fas fa-file-alt"></i></div>
+							<div class="highlight-text">End-to-end documentation support</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Impact -->
+				<div class="content-section">
+					<h2 class="section-title">
+						<span class="section-icon"><i class="fas fa-chart-line"></i></span>
+						Impact
+					</h2>
+					<div class="impact-grid">
+						<div class="impact-card">
+							<i class="fas fa-tint"></i>
+							<h4>Improved Liquidity</h4>
+							<p>Freed up working capital for core business operations</p>
+						</div>
+						<div class="impact-card">
+							<i class="fas fa-piggy-bank"></i>
+							<h4>Reduced Capex Burden</h4>
+							<p>Minimized heavy upfront capital expenditure requirements</p>
+						</div>
+						<div class="impact-card">
+							<i class="fas fa-running"></i>
+							<h4>Operational Agility</h4>
+							<p>Enhanced flexibility to upgrade assets as technology evolves</p>
+						</div>
+						<div class="impact-card">
+							<i class="fas fa-hand-holding-usd"></i>
+							<h4>Cost-Efficient Access</h4>
+							<p>Provided affordable access to critical business assets</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- CTA Section -->
+				<div class="cta-section">
+					<h2>Lease Smarter. Grow Faster.</h2>
+					<p>Talk to a Leasing Expert</p>
+					<a href="contact.html" class="cta-button">
+						<i class="fas fa-phone-alt"></i>
+						Get Started Today
+					</a>
+				</div>
+			</div>
+		</main>
+		
+		<!-- Footer will be loaded by common.js -->
+	</div>
+	
+	<!-- Common JS for navigation and footer -->
+	<script src="common.js"></script>
+</body>
+</html>
+

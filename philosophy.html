@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Our Philosophy & Vision | Growthally Advisors</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Discover Growthally Advisors' vision, mission, and core values that guide our investment banking and financial advisory services.">
+	<meta name="keywords" content="growthally vision, mission, core values, philosophy, investment banking ethics">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/logo.png">
+	
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles.css">
+	
+	<style>
+		/* Page-specific styles */
+		body {
+			background: #f8fafc;
+			margin: 0;
+			padding: 0;
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		
+		#wrapper_main {
+			overflow-x: hidden;
+			background: #f8fafc;
+		}
+		
+		/* Hero Section */
+		.philosophy-hero {
+			background: linear-gradient(135deg, #0f1941 0%, #0f1941 100%);
+			padding: 140px 0 100px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.philosophy-hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: radial-gradient(circle at 20% 50%, rgba(232, 219, 151, 0.1) 0%, transparent 50%),
+			            radial-gradient(circle at 80% 50%, rgba(232, 219, 151, 0.1) 0%, transparent 50%);
+			pointer-events: none;
+		}
+		
+		.philosophy-hero h1 {
+			color: #ffffff;
+			font-size: 3.5rem;
+			font-weight: 700;
+			margin: 0 0 20px;
+			position: relative;
+			z-index: 1;
+		}
+		
+		.philosophy-hero .golden-text {
+			color: #ffd700;
+		}
+		
+		.philosophy-hero p {
+			color: rgba(255, 255, 255, 0.9);
+			font-size: 1.3rem;
+			max-width: 800px;
+			margin: 0 auto;
+			position: relative;
+			z-index: 1;
+		}
+		
+		/* Vision & Mission Section */
+		.vision-mission-section {
+			padding: 80px 0;
+			background: #ffffff;
+		}
+		
+		.vm-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+			gap: 40px;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+		
+		.vm-card {
+			background: #ffffff;
+			border-radius: 20px;
+			padding: 50px 40px;
+			box-shadow: 0 10px 40px rgba(15, 25, 65, 0.08);
+			border: 2px solid #e6f3ff;
+			position: relative;
+			transition: all 0.4s ease;
+		}
+		
+		.vm-card:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 20px 60px rgba(15, 25, 65, 0.15);
+			border-color: #b6a032;
+		}
+		
+		.vm-icon {
+			width: 80px;
+			height: 80px;
+			background: linear-gradient(135deg, #0f1941, #0f1941);
+			border-radius: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 30px;
+			position: relative;
+		}
+		
+		.vm-icon::after {
+			content: '';
+			position: absolute;
+			inset: -3px;
+			background: linear-gradient(135deg, #ffd700, #ffd700);
+			border-radius: 20px;
+			z-index: -1;
+			opacity: 0;
+			transition: opacity 0.4s ease;
+		}
+		
+		.vm-card:hover .vm-icon::after {
+			opacity: 1;
+		}
+		
+		.vm-icon i {
+			font-size: 2.5rem;
+			color: #ffd700;
+		}
+		
+		.vm-card h2 {
+			color: #0f1941;
+			font-size: 2rem;
+			font-weight: 700;
+			margin: 0 0 20px;
+		}
+		
+		.vm-card p {
+			color: #4a5568;
+			font-size: 1.1rem;
+			line-height: 1.8;
+			margin: 0;
+		}
+		
+		/* Core Values Timeline Section */
+		.core-values-section {
+			padding: 100px 0;
+			background: #f8fafc;
+			position: relative;
+		}
+		
+		.section-title {
+			text-align: center;
+			margin-bottom: 80px;
+		}
+		
+		.section-title h2 {
+			color: #0f1941;
+			font-size: 3rem;
+			font-weight: 700;
+			margin: 0 0 15px;
+		}
+		
+		.section-title .golden-text {
+			color: #ffd700;
+		}
+		
+		.section-title p {
+			color: #6b7280;
+			font-size: 1.2rem;
+			margin: 0;
+		}
+		
+		/* Timeline Container */
+		.timeline-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+			position: relative;
+		}
+		
+		/* Center Vertical Line */
+		.timeline-line {
+			position: absolute;
+			left: 50%;
+			top: 0;
+			bottom: 0;
+			width: 4px;
+			background: linear-gradient(180deg, #ffd700 0%, #ffd700 100%);
+			transform: translateX(-50%);
+			z-index: 1;
+		}
+		
+		/* Timeline Item */
+		.timeline-item {
+			display: grid;
+			grid-template-columns: 1fr 100px 1fr;
+			gap: 0;
+			margin-bottom: 60px;
+			position: relative;
+		}
+		
+		.timeline-item:last-child {
+			margin-bottom: 0;
+		}
+		
+		/* Left Content */
+		.timeline-content-left {
+			text-align: right;
+			padding-right: 50px;
+			opacity: 0;
+			transform: translateX(-50px);
+			animation: slideInLeft 0.8s ease forwards;
+		}
+		
+		/* Right Content */
+		.timeline-content-right {
+			text-align: left;
+			padding-left: 50px;
+			opacity: 0;
+			transform: translateX(50px);
+			animation: slideInRight 0.8s ease forwards;
+		}
+		
+		/* Stagger animation delays */
+		.timeline-item:nth-child(1) .timeline-content-left,
+		.timeline-item:nth-child(1) .timeline-content-right { animation-delay: 0.2s; }
+		.timeline-item:nth-child(2) .timeline-content-left,
+		.timeline-item:nth-child(2) .timeline-content-right { animation-delay: 0.4s; }
+		.timeline-item:nth-child(3) .timeline-content-left,
+		.timeline-item:nth-child(3) .timeline-content-right { animation-delay: 0.6s; }
+		.timeline-item:nth-child(4) .timeline-content-left,
+		.timeline-item:nth-child(4) .timeline-content-right { animation-delay: 0.8s; }
+		.timeline-item:nth-child(5) .timeline-content-left,
+		.timeline-item:nth-child(5) .timeline-content-right { animation-delay: 1s; }
+		.timeline-item:nth-child(6) .timeline-content-left,
+		.timeline-item:nth-child(6) .timeline-content-right { animation-delay: 1.2s; }
+		
+		@keyframes slideInLeft {
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+		
+		@keyframes slideInRight {
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+		
+		/* Content Card */
+		.value-card {
+			background: #ffffff;
+			border-radius: 20px;
+			padding: 40px;
+			box-shadow: 0 10px 30px rgba(15, 25, 65, 0.08);
+			border: 2px solid #e6f3ff;
+			transition: all 0.4s ease;
+			position: relative;
+		}
+		
+		.value-card:hover {
+			transform: scale(1.05);
+			box-shadow: 0 20px 50px rgba(15, 25, 65, 0.15);
+			border-color: #ffd700;
+		}
+		
+		.value-card h3 {
+			color: #0f1941;
+			font-size: 1.8rem;
+			font-weight: 700;
+			margin: 0 0 15px;
+			display: flex;
+			align-items: center;
+			gap: 15px;
+		}
+		
+		.timeline-content-right .value-card h3 {
+			flex-direction: row;
+		}
+		
+		.timeline-content-left .value-card h3 {
+			flex-direction: row-reverse;
+		}
+		
+		.value-number {
+			width: 45px;
+			height: 45px;
+			background: linear-gradient(135deg, #ffd700, #ffd700);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.2rem;
+			font-weight: 700;
+			color: #0f1941;
+			flex-shrink: 0;
+		}
+		
+		.value-card p {
+			color: #4a5568;
+			font-size: 1.05rem;
+			line-height: 1.8;
+			margin: 0;
+		}
+		
+		/* Center Icon */
+		.timeline-icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.icon-circle {
+			width: 80px;
+			height: 80px;
+			background: #ffffff;
+			border: 4px solid #ffd700;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 10px 30px rgba(232, 219, 151, 0.3);
+			transition: all 0.4s ease;
+		}
+		
+		.timeline-item:hover .icon-circle {
+			transform: scale(1.2) rotate(360deg);
+			box-shadow: 0 15px 40px rgba(232, 219, 151, 0.5);
+		}
+		
+		.icon-circle i {
+			font-size: 2rem;
+			color: #0f1941;
+		}
+		
+		/* Empty space for alternating layout */
+		.timeline-empty {
+			/* Empty space */
+		}
+		
+		/* Responsive Design */
+		@media (max-width: 992px) {
+			.vm-grid {
+				grid-template-columns: 1fr;
+				max-width: 600px;
+			}
+			
+			.philosophy-hero h1 {
+				font-size: 2.5rem;
+			}
+			
+			.section-title h2 {
+				font-size: 2.2rem;
+			}
+			
+			.timeline-item {
+				grid-template-columns: 1fr;
+				gap: 30px;
+			}
+			
+			.timeline-line {
+				left: 30px;
+			}
+			
+			.timeline-content-left,
+			.timeline-content-right {
+				text-align: left;
+				padding-left: 80px;
+				padding-right: 0;
+			}
+			
+			.timeline-content-left .value-card h3 {
+				flex-direction: row;
+			}
+			
+			.timeline-icon {
+				position: absolute;
+				left: 0;
+				top: 20px;
+			}
+			
+			.icon-circle {
+				width: 60px;
+				height: 60px;
+			}
+			
+			.icon-circle i {
+				font-size: 1.5rem;
+			}
+			
+			.timeline-empty {
+				display: none;
+			}
+		}
+		
+		@media (max-width: 768px) {
+			.philosophy-hero {
+				padding: 120px 0 80px;
+			}
+			
+			.philosophy-hero h1 {
+				font-size: 2rem;
+			}
+			
+			.philosophy-hero p {
+				font-size: 1.1rem;
+			}
+			
+			.vm-grid {
+				grid-template-columns: 1fr;
+				gap: 30px;
+			}
+			
+			.vm-card {
+				padding: 35px 30px;
+			}
+			
+			.value-card {
+				padding: 30px 25px;
+			}
+			
+			.value-card h3 {
+				font-size: 1.5rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper_main">
+		<!-- Header will be loaded by common.js -->
+		
+		<main id="wrapper_scroll">
+			<!-- Hero Section -->
+			<section class="philosophy-hero">
+				<div class="container">
+					<h1>Our Philosophy <span class="golden-text">&</span> Vision</h1>
+					<p>The principles and values that guide our journey in investment banking and financial advisory</p>
+				</div>
+			</section>
+			
+			<!-- Vision & Mission Section -->
+			<section class="vision-mission-section">
+				<div class="vm-grid">
+					<!-- Vision Card -->
+					<div class="vm-card">
+						<div class="vm-icon">
+							<i class="fas fa-eye"></i>
+						</div>
+						<h2>Our Vision</h2>
+						<p>To be the most trusted and impactful investment banking platform, enabling businesses to scale responsibly through intelligent capital, strategic insight, and execution excellence.</p>
+					</div>
+					
+					<!-- Mission Card -->
+					<div class="vm-card">
+						<div class="vm-icon">
+							<i class="fas fa-bullseye"></i>
+						</div>
+						<h2>Our Mission</h2>
+						<p>To partner with businesses across their growth lifecycle by delivering integrated investment banking, capital advisory, and strategic finance solutions. Through deep expertise, strong institutional networks, and disciplined execution, we aim to create long-term value for our clients, investors, and stakeholders.</p>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Core Values Timeline Section -->
+			<section class="core-values-section">
+				<div class="section-title">
+					<h2>Our Core <span class="golden-text">Values</span></h2>
+					<p>Six pillars that define who we are and how we serve</p>
+				</div>
+				
+				<div class="timeline-container">
+					<!-- Center Line -->
+					<div class="timeline-line"></div>
+					
+					<!-- Value 1: Integrity First (Left) -->
+					<div class="timeline-item">
+						<div class="timeline-content-left">
+							<div class="value-card">
+								<h3>
+									<span class="value-number">1</span>
+									<span>Integrity First</span>
+								</h3>
+								<p>We operate with uncompromising ethical standards. Transparency, confidentiality, and fairness are non-negotiable in every engagement.</p>
+							</div>
+						</div>
+						<div class="timeline-icon">
+							<div class="icon-circle">
+								<i class="fas fa-shield-alt"></i>
+							</div>
+						</div>
+						<div class="timeline-empty"></div>
+					</div>
+					
+					<!-- Value 2: Client-Centric Thinking (Right) -->
+					<div class="timeline-item">
+						<div class="timeline-empty"></div>
+						<div class="timeline-icon">
+							<div class="icon-circle">
+								<i class="fas fa-users"></i>
+							</div>
+						</div>
+						<div class="timeline-content-right">
+							<div class="value-card">
+								<h3>
+									<span class="value-number">2</span>
+									<span>Client-Centric Thinking</span>
+								</h3>
+								<p>We approach every mandate from the client's perspective — understanding their business, priorities, and long-term objectives before structuring solutions.</p>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Value 3: Execution Excellence (Left) -->
+					<div class="timeline-item">
+						<div class="timeline-content-left">
+							<div class="value-card">
+								<h3>
+									<span class="value-number">3</span>
+									<span>Execution Excellence</span>
+								</h3>
+								<p>Ideas create value only when executed well. We bring discipline, precision, and accountability to every transaction, regardless of complexity.</p>
+							</div>
+						</div>
+						<div class="timeline-icon">
+							<div class="icon-circle">
+								<i class="fas fa-trophy"></i>
+							</div>
+						</div>
+						<div class="timeline-empty"></div>
+					</div>
+					
+					<!-- Value 4: Strategic Depth (Right) -->
+					<div class="timeline-item">
+						<div class="timeline-empty"></div>
+						<div class="timeline-icon">
+							<div class="icon-circle">
+								<i class="fas fa-chess"></i>
+							</div>
+						</div>
+						<div class="timeline-content-right">
+							<div class="value-card">
+								<h3>
+									<span class="value-number">4</span>
+									<span>Strategic Depth</span>
+								</h3>
+								<p>Our advice is grounded in experience, research, and contextual understanding. We combine strategic insight with practical financial structuring.</p>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Value 5: Partnership Mindset (Left) -->
+					<div class="timeline-item">
+						<div class="timeline-content-left">
+							<div class="value-card">
+								<h3>
+									<span class="value-number">5</span>
+									<span>Partnership Mindset</span>
+								</h3>
+								<p>We do not view ourselves as advisors for a single transaction, but as long-term partners across the client's growth lifecycle.</p>
+							</div>
+						</div>
+						<div class="timeline-icon">
+							<div class="icon-circle">
+								<i class="fas fa-handshake"></i>
+							</div>
+						</div>
+						<div class="timeline-empty"></div>
+					</div>
+					
+					<!-- Value 6: Responsible Growth (Right) -->
+					<div class="timeline-item">
+						<div class="timeline-empty"></div>
+						<div class="timeline-icon">
+							<div class="icon-circle">
+								<i class="fas fa-seedling"></i>
+							</div>
+						</div>
+						<div class="timeline-content-right">
+							<div class="value-card">
+								<h3>
+									<span class="value-number">6</span>
+									<span>Responsible Growth</span>
+								</h3>
+								<p>We believe sustainable growth is built on sound governance, prudent capital structures, and long-term value creation for all stakeholders.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		
+		<!-- Footer will be loaded by common.js -->
+	</div>
+	
+	<!-- Scripts -->
+	<script src="common.js"></script>
+	<!-- <script>
+		// Initialize common elements
+		document.addEventListener('DOMContentLoaded', function() {
+			initCommonElements();
+		});
+	</script> -->
+</body>
+</html>
+
