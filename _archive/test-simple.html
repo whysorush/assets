@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .dropdown-menu { display: none; background: #f8fafc; padding: 10px; }
+        .nav-dropdown.active .dropdown-menu { display: block !important; border: 3px solid red; }
+    </style>
+</head>
+<body>
+    <h1>Simple Test</h1>
+    <div class="nav-dropdown">
+        <button onclick="this.parentElement.classList.toggle('active')">Toggle Dropdown</button>
+        <div class="dropdown-menu">
+            <p>Item 1</p>
+            <p>Item 2</p>
+            <p>Item 3</p>
+        </div>
+    </div>
+    <script>
+        console.log('Menu element:', document.querySelector('.dropdown-menu'));
+        console.log('Initial display:', window.getComputedStyle(document.querySelector('.dropdown-menu')).display);
+    </script>
+</body>
+</html>

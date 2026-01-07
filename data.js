@@ -87,30 +87,6 @@ const GROWTHALLY_DATA = {
             ]
         },
         {
-            id: "ma-advisory",
-            title: "M&A Advisory",
-            icon: "fas fa-building",
-            features: [
-                "Buy-side Advisory",
-                "Sell-side Advisory",
-                "Valuation Services",
-                "Due Diligence",
-                "Deal Structuring"
-            ]
-        },
-        {
-            id: "growth-cfo",
-            title: "Growth CFO Services",
-            icon: "fas fa-user-tie",
-            features: [
-                "Financial Planning",
-                "Budget & Forecasting",
-                "MIS & Reporting",
-                "CFO Advisory",
-                "Compliance Support"
-            ]
-        },
-        {
             id: "leasing",
             title: "Leasing Solutions",
             icon: "fas fa-file-contract",
@@ -123,8 +99,20 @@ const GROWTHALLY_DATA = {
             ]
         },
         {
-            id: "restructuring",
-            title: "Financial Restructuring",
+            id: "ma-advisory",
+            title: "M&A Advisory",
+            icon: "fas fa-building",
+            features: [
+                "Buy-side Advisory",
+                "Sell-side Advisory",
+                "Valuation Services",
+                "Due Diligence",
+                "Deal Structuring"
+            ]
+        },
+        {
+            id: "structured-mortgages",
+            title: "Structured Mortgages",
             icon: "fas fa-sync-alt",
             features: [
                 "Debt Restructuring",
@@ -132,6 +120,18 @@ const GROWTHALLY_DATA = {
                 "Turnaround Management",
                 "Liability Management",
                 "Strategic Restructuring"
+            ]
+        },
+        {
+            id: "growth-cfo",
+            title: "Growth CFO Services",
+            icon: "fas fa-user-tie",
+            features: [
+                "Financial Planning",
+                "Budget & Forecasting",
+                "MIS & Reporting",
+                "CFO Advisory",
+                "Compliance Support"
             ]
         }
     ],
@@ -224,6 +224,30 @@ const GROWTHALLY_DATA = {
             image: "./assets/Aditya.jpg",
             specialties: ["Client Acquisition", "Investment Banking", "Partnerships"],
             linkedin: "#"
+        },
+        {
+            name: "Jay",
+            position: "Team Member",
+            bio: "",
+            image: "./assets/jay.jpg",
+            specialties: [],
+            linkedin: "#"
+        },
+        {
+            name: "Jigar",
+            position: "Team Member",
+            bio: "",
+            image: "./assets/jigar.jpg",
+            specialties: [],
+            linkedin: "#"
+        },
+        {
+            name: "Nupur",
+            position: "Team Member",
+            bio: "",
+            image: "./assets/nupur.jpg",
+            specialties: [],
+            linkedin: "#"
         }
     ],
 
@@ -304,41 +328,9 @@ const GROWTHALLY_DATA = {
 
     transactions: {
         active: [],
-        // active: [
-        //     {
-        //         logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
-        //         company_name: "TechCorp Industries",
-        //         deal_type: "Debt Syndication",
-        //         amount: "₹40 Cr"
-        //     },
-        //     {
-        //         logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
-        //         company_name: "Pharma Solutions Ltd",
-        //         deal_type: "Equity Funding",
-        //         amount: "₹25 Cr"
-        //     },
-        //     {
-        //         logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
-        //         company_name: "Manufacturing Hub",
-        //         deal_type: "M&A Advisory",
-        //         amount: "₹60 Cr"
-        //     },
-        //     {
-        //         logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
-        //         company_name: "Green Energy Corp",
-        //         deal_type: "Structured Finance",
-        //         amount: "₹35 Cr"
-        //     },
-        //     {
-        //         logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
-        //         company_name: "FinTech Startup",
-        //         deal_type: "Series A Funding",
-        //         amount: "₹18 Cr"
-        //     }
-        // ],
         completed: [
             {
-                logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+                logo: "assets/transactions/zovian.png",
                 company_name: "Xovian Aerospace",
                 deal_type: "Private Equity",
                 amount: "₹22 Cr",
@@ -346,7 +338,7 @@ const GROWTHALLY_DATA = {
                 completed_date: "2024"
             },
             {
-                logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+                logo: "assets/transactions/jag_fin.jpg",
                 company_name: "Jagsonpal Pharma",
                 deal_type: "M&A",
                 amount: "₹94 Cr",
@@ -354,7 +346,7 @@ const GROWTHALLY_DATA = {
                 completed_date: "2024"
             },
             {
-                logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+                logo: "assets/transactions/llyod_fin.png",
                 company_name: "Lloyds Metals",
                 deal_type: "Unsecured Loan",
                 amount: "₹350 Cr",
@@ -362,7 +354,7 @@ const GROWTHALLY_DATA = {
                 completed_date: "2024"
             },
             {
-                logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+                logo: "assets/transactions/waree fin.jpg",
                 company_name: "Waaree Renewable Technologies Limited",
                 deal_type: "Working Capital",
                 amount: "₹25 Cr",
@@ -370,7 +362,7 @@ const GROWTHALLY_DATA = {
                 completed_date: "2024"
             },
             {
-                logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+                logo: "assets/transactions/sudarshan fin.jpg",
                 company_name: "Sudarshan Pharma Industries Limited",
                 deal_type: "Working Capital",
                 amount: "₹100 Cr",
@@ -378,7 +370,7 @@ const GROWTHALLY_DATA = {
                 completed_date: "2024"
             },
             {
-                logo: "https://www.growthally.org/wp-content/uploads/2022/01/cropped-cropped-Untitled-design-21.png",
+                logo: "assets/transactions/AB_Logo.jpg",
                 company_name: "AB Infrabuild Limited",
                 deal_type: "Working Capital",
                 amount: "₹93 Cr",

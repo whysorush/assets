@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 80px 20px 20px;
+            font-family: Arial, sans-serif;
+        }
+        .test-info {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .test-info h2 {
+            margin-top: 0;
+            color: #0369a1;
+        }
+        .debug-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border: 2px solid #333;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            max-width: 300px;
+            font-size: 12px;
+        }
+        .debug-panel h3 {
+            margin-top: 0;
+            font-size: 14px;
+        }
+        .debug-item {
+            margin: 5px 0;
+            padding: 5px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h2>🔍 Dropdown Functionality Test</h2>
+        <p><strong>Instructions:</strong></p>
+        <ul>
+            <li>Click on "About Us" or "Insights" below</li>
+            <li>The dropdown should appear with menu items</li>
+            <li>Check the debug panel (bottom right) for real-time info</li>
+        </ul>
+    </div>
+
+    <!-- Header will be injected here -->
+    
+    <div class="debug-panel">
+        <h3>Debug Info</h3>
+        <div id="debugInfo">Loading...</div>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="diagnose-dropdown.js"></script>
+    <script>
+        // Debug monitoring
+        function updateDebug() {
+            const dropdowns = document.querySelectorAll('.nav-dropdown');
+            const debugDiv = document.getElementById('debugInfo');
+            
+            let html = `<div class="debug-item"><strong>Dropdowns found:</strong> ${dropdowns.length}</div>`;
+            
+            dropdowns.forEach((dropdown, index) => {
+                const isActive = dropdown.classList.contains('active');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                
+                if (menu) {
+                    const styles = window.getComputedStyle(menu);
+                    html += `
+                        <div class="debug-item">
+                            <strong>Dropdown ${index + 1}:</strong><br>
+                            Active: ${isActive ? '✅' : '❌'}<br>
+                            Display: ${styles.display}<br>
+                            Visibility: ${styles.visibility}<br>
+                            Opacity: ${styles.opacity}<br>
+                            Max-height: ${styles.maxHeight}<br>
+                            Overflow: ${styles.overflow}
+                        </div>
+                    `;
+                }
+            });
+            
+            debugDiv.innerHTML = html;
+        }
+        
+        // Update debug info every 500ms
+        setInterval(updateDebug, 500);
+        
+        // Also update on click
+        document.addEventListener('click', () => {
+            setTimeout(updateDebug, 100);
+        });
+    </script>
+</body>
+</html>

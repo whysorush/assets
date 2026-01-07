@@ -295,19 +295,18 @@
 		
 		<main>
 			<!-- Hero Section -->
-			<section class="gallery-hero">
+			<!-- <section class="gallery-hero">
 				<div class="container">
-					<h1>Our Gallery</h1>
-					<p>Celebrating our team, culture, and journey together</p>
+					<h1>Our Culture</h1>
+					<p>Celebrating our vibrant culture and memorable moments together</p>
 				</div>
-			</section>
-			
+			</section> -->
+			<section>	<h1>Our Culture</h1></section>
 			<!-- Gallery Container -->
 			<div class="gallery-container">
 				<!-- Category Filters -->
 				<div class="gallery-categories">
-					<button class="category-btn active" onclick="filterGallery('team')">Our Team</button>
-					<button class="category-btn" onclick="filterGallery('culture')">Company Culture</button>
+					<button class="category-btn active" onclick="filterGallery('culture')">Company Culture</button>
 					<button class="category-btn" onclick="filterGallery('events')">Events & Celebrations</button>
 				</div>
 				
@@ -343,113 +342,6 @@
 	<script>
 		// Gallery data - Team, Culture, and Events
 		const galleryData = [
-			// Team Members
-			{
-				id: 1,
-				image: 'assets/bhupi.jpg',
-				title: 'Bhupinder Narendra Garg',
-				category: 'team',
-				description: 'Founder and Director'
-			},
-			{
-				id: 2,
-				image: 'assets/shekher.jpg',
-				title: 'Shekhar Shrawankumar Bhuwania',
-				category: 'team',
-				description: 'Founder and Director'
-			},
-			{
-				id: 3,
-				image: 'assets/ravi.jpg',
-				title: 'Ravi Jaisalmeria',
-				category: 'team',
-				description: 'Founder and Director'
-			},
-			{
-				id: 4,
-				image: 'assets/saurab.jpg',
-				title: 'Saurabh',
-				category: 'team',
-				description: 'VP - Debt Syndication'
-			},
-			{
-				id: 5,
-				image: 'assets/mayuri.jpg',
-				title: 'Mayuri',
-				category: 'team',
-				description: 'Team Leader - Debt Syndication'
-			},
-			{
-				id: 6,
-				image: 'assets/brijen.jpg',
-				title: 'Brijen',
-				category: 'team',
-				description: 'Sr. Relationship Manager'
-			},
-			{
-				id: 7,
-				image: 'assets/aayush.jpg',
-				title: 'Ayush',
-				category: 'team',
-				description: 'Sr. Relationship Manager'
-			},
-			{
-				id: 8,
-				image: 'assets/varun.jpg',
-				title: 'Varun',
-				category: 'team',
-				description: 'VP - Investment Banking'
-			},
-			{
-				id: 9,
-				image: 'assets/yash.jpg',
-				title: 'Yash',
-				category: 'team',
-				description: 'Head - Equity'
-			},
-			{
-				id: 10,
-				image: 'assets/lakshmikant.jpg',
-				title: 'Laxmikant',
-				category: 'team',
-				description: 'Head - Equity'
-			},
-			{
-				id: 11,
-				image: 'assets/Aditya.jpg',
-				title: 'Aditya',
-				category: 'team',
-				description: 'Manager - Client Acquisition'
-			},
-			{
-				id: 12,
-				image: 'assets/jay.jpg',
-				title: 'Jay',
-				category: 'team',
-				description: 'Team Member'
-			},
-			{
-				id: 13,
-				image: 'assets/jigar.jpg',
-				title: 'Jigar',
-				category: 'team',
-				description: 'Team Member'
-			},
-			{
-				id: 14,
-				image: 'assets/nupur.jpg',
-				title: 'Nupur',
-				category: 'team',
-				description: 'Team Member'
-			},
-			{
-				id: 15,
-				image: 'assets/group2.jpeg',
-				title: 'Team Gathering',
-				category: 'team',
-				description: 'Our amazing team together'
-			},
-			
 			// Company Culture
 			{
 				id: 16,
@@ -623,7 +515,7 @@
 			}
 		];
 		
-		let currentFilter = 'team';
+		let currentFilter = 'culture';
 		let currentLightboxIndex = 0;
 		let filteredGallery = galleryData;
 		

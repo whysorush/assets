@@ -259,10 +259,9 @@
 			box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 		}
 		
-		.success-message {
+		.success-message,
+		.error-message {
 			display: none;
-			background: #10b981;
-			color: white;
 			padding: 15px 20px;
 			border-radius: 8px;
 			margin-bottom: 20px;
@@ -270,7 +269,18 @@
 			font-weight: 600;
 		}
 		
-		.success-message.show {
+		.success-message {
+			background: #10b981;
+			color: white;
+		}
+		
+		.error-message {
+			background: #dc2626;
+			color: white;
+		}
+		
+		.success-message.show,
+		.error-message.show {
 			display: block;
 			animation: slideDown 0.3s ease;
 		}
@@ -329,6 +339,9 @@
 						<div class="success-message" id="successMessage">
 							<i class="fas fa-check-circle"></i> Thank you! We'll get back to you soon.
 						</div>
+						<div class="error-message" id="errorMessage">
+							<i class="fas fa-exclamation-circle"></i> Error sending message. Please try again.
+						</div>
 						<form id="contactForm" onsubmit="handleSubmit(event)">
 							<div class="form-group">
 								<label>Full Name <span class="required">*</span></label>
@@ -356,8 +369,9 @@
 									<option value="">Select a service</option>
 									<option value="debt-syndication">Debt Syndication</option>
 									<option value="equity-advisory">Equity Advisory</option>
+									<option value="leasing-solutions">Leasing Solutions</option>
 									<option value="ma-advisory">M&A Advisory</option>
-									<option value="financial-consulting">Financial Consulting</option>
+									<option value="structured-mortgages">Structured Mortgages</option>
 									<option value="growth-cfo">Growth CFO Services</option>
 									<option value="other">Other</option>
 								</select>
@@ -389,10 +403,22 @@
 							</div>
 							<div class="contact-info-content">
 								<h3>Office Address</h3>
-								<p>21A, Vasudev Chambers,<br>
+								<p><strong>Mumbai (HQ):</strong><br>
+								21A, Vasudev Chambers,<br>
 								Old Nagardas Cross Lane,<br>
 								Near Andheri Subway,<br>
 								Andheri East, Mumbai - 400069</p>
+							</div>
+						</div>
+						
+						<div class="contact-info-item">
+							<div class="contact-icon">
+								<i class="fas fa-building"></i>
+							</div>
+							<div class="contact-info-content">
+								<h3>Our Presence</h3>
+								<p>We serve clients across:<br>
+								<strong>Pune | Delhi | Bangalore</strong></p>
 							</div>
 						</div>
 						
@@ -482,48 +508,62 @@
 			
 			const form = event.target;
 			const formData = new FormData(form);
+			const submitBtn = form.querySelector('.submit-btn');
+			const successMessage = document.getElementById('successMessage');
+			const errorMessage = document.getElementById('errorMessage');
 			
-			// Get form values
-			const name = formData.get('name');
-			const email = formData.get('email');
-			const phone = formData.get('phone');
-			const company = formData.get('company') || 'Not specified';
-			const service = formData.get('service');
-			const callbackTime = formData.get('callback_time') || 'Not specified';
-			const message = formData.get('message');
+			// Disable submit button
+			submitBtn.disabled = true;
+			submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 			
-			// Create mailto link with pre-filled subject and body
-			const subject = `Inquiry from ${name} - ${service}`;
-			const body = `
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Company: ${company}
-Service Interested: ${service}
-Preferred Callback Time: ${callbackTime}
-
-Message:
-${message}
-
----
-This inquiry was submitted through the Growthally Advisors contact form.
-			`.trim();
+			// Hide previous messages
+			successMessage.classList.remove('show');
+			errorMessage.classList.remove('show');
 			
-			const mailtoLink = `mailto:info@growthally.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-			
-			// Open mail client
-			window.location.href = mailtoLink;
-			
-			// Show success message
-			document.getElementById('successMessage').classList.add('show');
-			
-			// Reset form
-			form.reset();
-			
-			// Hide success message after 5 seconds
-			setTimeout(() => {
-				document.getElementById('successMessage').classList.remove('show');
-			}, 5000);
+			// Send form data via AJAX
+			fetch('contact-handler.php', {
+				method: 'POST',
+				body: formData
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					// Show success message
+					successMessage.textContent = data.message;
+					successMessage.classList.add('show');
+					
+					// Reset form
+					form.reset();
+					
+					// Hide success message after 5 seconds
+					setTimeout(() => {
+						successMessage.classList.remove('show');
+					}, 5000);
+				} else {
+					// Show error message
+					errorMessage.textContent = data.message;
+					errorMessage.classList.add('show');
+					
+					// Hide error message after 5 seconds
+					setTimeout(() => {
+						errorMessage.classList.remove('show');
+					}, 5000);
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				errorMessage.textContent = 'An error occurred. Please try again or contact us directly at info@growthally.org';
+				errorMessage.classList.add('show');
+				
+				setTimeout(() => {
+					errorMessage.classList.remove('show');
+				}, 5000);
+			})
+			.finally(() => {
+				// Re-enable submit button
+				submitBtn.disabled = false;
+				submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+			});
 		}
 	</script>
 </body>

@@ -33,7 +33,7 @@
             <!-- Hero Banner Section -->
             <section class="hero-banner" id="home">
                 <!-- Background Image -->
-                <img src="assets/hero.jpeg" alt="Hero Background" class="hero-video">
+                <img src="assets/heroNew.jpg" alt="Hero Background" class="hero-video">
                 
                 <!-- Hero Content -->
                 <div class="hero-content-wrapper">
@@ -62,7 +62,13 @@
                                 Established in 2010, <strong>Growthally Advisors</strong> is a leading Investment Banking and Financial Advisory firm, built on the ethos of being <strong>"A Friend for Growth."</strong>
                             </p>
                             <p class="about-description">
-                                With over 15 years of experience, we specialize in Debt Syndication, Equity Advisory, Mergers & Acquisitions, Growth CFO Services, Leasing, Structured Mortgages, and Financial Restructuring - providing comprehensive capital solutions that empower businesses to expand, transform, and thrive. Our strength lies in deep domain expertise, strategic thinking, and long-standing relationships across banks, NBFCs, private equity funds, and institutional investors. We understand that every business is unique, and hence our approach is rooted in designing customized financial strategies aligned with each client's growth vision. At Growthally, we go beyond transactions - we build enduring partnerships, offering continuous support throughout the financial journey. Whether it's optimizing capital structure, driving growth, or navigating complex restructuring, we bring together insight, execution excellence, and integrity to deliver results that matter.
+                                With over 15 years of experience, we specialize in Debt Syndication, Equity Advisory, Mergers & Acquisitions, Growth CFO Services, Leasing, Structured Mortgages, and Financial Restructuring - providing comprehensive capital solutions that empower businesses to expand, transform, and thrive.
+                            </p>
+                            <p class="about-description">
+                                Our strength lies in deep domain expertise, strategic thinking, and long-standing relationships across banks, NBFCs, private equity funds, and institutional investors. We understand that every business is unique, and hence our approach is rooted in designing customized financial strategies aligned with each client's growth vision.
+                            </p>
+                            <p class="about-description">
+                                At Growthally, we go beyond transactions - we build enduring partnerships, offering continuous support throughout the financial journey. Whether it's optimizing capital structure, driving growth, or navigating complex restructuring, we bring together insight, execution excellence, and integrity to deliver results that matter.
                             </p>
                         </div>
                     </div>
@@ -88,7 +94,7 @@
             <!-- Achievements Section -->
             <section class="achievements-section" id="achievements">
                 <!-- Background Image -->
-                <img src="assets/hero.jpeg" alt="Achievements Background" class="achievements-bg-video">
+                <img src="assets/heroNew.jpg" alt="Achievements Background" class="achievements-bg-video">
                 
                 <!-- Overlay -->
                 <div class="achievements-overlay"></div>
@@ -169,7 +175,7 @@
             <!-- Testimonials Section -->
             <section id="testimonials" class="testimonials-section">
                 <!-- Background Image -->
-                <img src="assets/hero.jpeg" alt="Testimonials Background" class="testimonials-bg-video">
+                <img src="assets/heroNew.jpg" alt="Testimonials Background" class="testimonials-bg-video">
                 <div class="testimonials-overlay"></div>
                 
                 <div class="container testimonials-content">
@@ -206,7 +212,7 @@
             <!-- Downloads/Brochure Section -->
             <section class="brochure-section" id="brochure">
                 <!-- Background Image -->
-                <img src="assets/hero.jpeg" alt="Brochure Background" class="brochure-bg-video">
+                <img src="assets/heroNew.jpg" alt="Brochure Background" class="brochure-bg-video">
                 <div class="brochure-overlay"></div>
                 
                 <div class="container brochure-content-wrapper">
@@ -278,8 +284,13 @@
                 </div>
             `).join('');
 
-            // Duplicate for seamless loop
-            marquee.innerHTML = transactionsHTML + transactionsHTML;
+            // Duplicate for seamless infinite loop (match clients section)
+            const numDuplicates = 2; // 2x duplication like clients marquee
+            let duplicatedHTML = '';
+            for (let i = 0; i < numDuplicates; i++) {
+                duplicatedHTML += transactionsHTML;
+            }
+            marquee.innerHTML = duplicatedHTML;
         }
 
         // Load and render achievements with counter animation

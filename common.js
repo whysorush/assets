@@ -32,7 +32,7 @@ function initCommonElements() {
                         <li role="none"><a href="index.html#about" role="menuitem">Our Story</a></li>
                         <li role="none"><a href="philosophy.html" role="menuitem">Our Philosophy & Vision</a></li>
                         <li role="none"><a href="why-growthally.html" role="menuitem">Why Growthally?</a></li>
-                        <li role="none"><a href="gallery.html" role="menuitem">Leadership Team</a></li>
+                        <li role="none"><a href="leadership.html" role="menuitem">Leadership Team</a></li>
                         <li role="none"><a href="growthally-advisors.html" role="menuitem">GrowthAlly Advisors</a></li>
                         <li role="none"><a href="spark-fund.html" role="menuitem">GrowthAlly Spark Fund (AIF)</a></li>
                         <li role="none"><a href="growlease.html" role="menuitem">GrowLease (Leasing Solutions)</a></li>
@@ -49,6 +49,7 @@ function initCommonElements() {
                         <li role="none"><a href="index.html#brochure" role="menuitem">Downloads</a></li>
                     </ul>
                 </li>
+                <li role="none"><a href="gallery.html" role="menuitem">Culture</a></li>
                 <li role="none"><a href="index.html#careers" role="menuitem">Careers</a></li>
                 <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
             </ul>
@@ -77,9 +78,6 @@ function initCommonElements() {
                     <a href="https://www.facebook.com/growthally" target="_blank" rel="noopener" title="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://twitter.com/growthally" target="_blank" rel="noopener" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
                     <a href="https://www.instagram.com/growthally" target="_blank" rel="noopener" title="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
@@ -97,12 +95,14 @@ function initCommonElements() {
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h5>Solutions</h5>
+                    <h5>Services</h5>
                     <ul>
                         <li><a href="index.html#services">Debt Syndication</a></li>
                         <li><a href="index.html#services">Equity Advisory</a></li>
+                        <li><a href="index.html#services">Leasing Solutions</a></li>
                         <li><a href="index.html#services">M&A Advisory</a></li>
-                        <li><a href="index.html#services">Financial Consulting</a></li>
+                        <li><a href="index.html#services">Structured Mortgages</a></li>
+                        <li><a href="index.html#services">Growth CFO Services</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -110,7 +110,7 @@ function initCommonElements() {
                     <ul class="footer-contact">
                         <li><i class="fas fa-phone"></i> +91-75062-36027</li>
                         <li><i class="fas fa-envelope"></i> info@growthally.org</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai | Pune | Delhi | Bangalore</li>
                     </ul>
                 </div>
             </div>

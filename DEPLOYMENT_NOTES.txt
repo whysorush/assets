@@ -1,0 +1,75 @@
+GROWTHALLY WEBSITE - DEPLOYMENT TO CPANEL
+==========================================
+
+✅ CLEANUP COMPLETED - Ready for deployment!
+
+PRODUCTION FILES (Upload these to cPanel):
+-------------------------------------------
+- index.html (Main homepage)
+- All other HTML pages:
+  * blogs.html
+  * contact.html
+  * gallery.html
+  * growlease.html
+  * growthally-advisors.html
+  * leadership.html
+  * media.html
+  * philosophy.html
+  * spark-fund.html
+  * why-growthally.html
+
+- JavaScript files:
+  * app.js
+  * common.js
+  * data.js
+
+- CSS:
+  * styles.css
+
+- Assets folder:
+  * assets/ (entire folder with all images, videos, PDFs)
+
+ARCHIVED FILES (Not needed for production):
+--------------------------------------------
+All development, test, and backup files have been moved to the '_archive' folder.
+This folder should NOT be uploaded to cPanel.
+
+CPANEL DEPLOYMENT STEPS:
+-------------------------
+1. Log into cPanel
+2. Go to File Manager
+3. Navigate to public_html (or your domain's root folder)
+4. Upload all production files listed above
+5. Make sure to maintain the folder structure (especially the assets folder)
+6. Set proper file permissions if needed (typically 644 for files, 755 for folders)
+7. Test the website by visiting your domain
+
+IMPORTANT:
+----------
+- Do NOT upload the '_archive' folder
+- Ensure assets folder is uploaded with all subdirectories (culture, events, transactions)
+- The main entry point is index.html
+
+CONTACT FORM SETUP:
+-------------------
+Your contact form has 2 implementation options:
+
+Option 1: PHP Mail (contact.html + contact-handler.php)
+- Upload both files to cPanel
+- Configure email in contact-handler.php
+- Requires PHP mail() function enabled
+- See CONTACT_FORM_SETUP.md for detailed instructions
+
+Option 2: Web3Forms (contact-web3forms.html - NO PHP NEEDED)
+- Rename contact-web3forms.html to contact.html
+- Sign up at web3forms.com (free)
+- Get your access key
+- Replace YOUR_ACCESS_KEY_HERE in the file
+- No server configuration needed!
+
+⚠️ CHOOSE ONE OPTION AND DELETE THE OTHER FILES
+
+For detailed setup instructions, read: CONTACT_FORM_SETUP.md
+
+Date: December 31, 2025
+
